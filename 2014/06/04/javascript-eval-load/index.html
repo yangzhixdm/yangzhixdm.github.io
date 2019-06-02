@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1 .执行全局的 eval 代码 12345678910var globalEval = function globalEval(src) &amp;#123;    if (window.execScript) &amp;#123;        window.execScript(src);        return;    &amp;#125;    var fn = function() &amp;#123;">
+<meta name="keywords" content="前端, javaScript, github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS window eval and load script">
+<meta property="og:url" content="http://yoursite.com/2014/06/04/javascript-eval-load/index.html">
+<meta property="og:site_name" content="何必云梯">
+<meta property="og:description" content="1 .执行全局的 eval 代码 12345678910var globalEval = function globalEval(src) &amp;#123;    if (window.execScript) &amp;#123;        window.execScript(src);        return;    &amp;#125;    var fn = function() &amp;#123;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-02T08:22:28.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS window eval and load script">
+<meta name="twitter:description" content="1 .执行全局的 eval 代码 12345678910var globalEval = function globalEval(src) &amp;#123;    if (window.execScript) &amp;#123;        window.execScript(src);        return;    &amp;#125;    var fn = function() &amp;#123;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/06/04/javascript-eval-load/">
+
+
+
+
+
+  <title>JS window eval and load script | 何必云梯</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">何必云梯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">站在巨人的肩膀上</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/06/04/javascript-eval-load/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="何必云梯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JS window eval and load script</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-06-04T09:46:48+08:00">
+                2014-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1 .执行全局的 eval 代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> globalEval = <span class="function"><span class="keyword">function</span> <span class="title">globalEval</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.execScript) &#123;</span><br><span class="line">        <span class="built_in">window</span>.execScript(src);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.eval.call(<span class="built_in">window</span>,src);</span><br><span class="line">    &#125;;</span><br><span class="line">    fn();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>以下为腾讯的loadScript代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">QQ.LoadScript = <span class="function"><span class="keyword">function</span>(<span class="params">url, callback, charset</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">	script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">	<span class="keyword">if</span>(charset)&#123;</span><br><span class="line">		script.setAttribute(<span class="string">"charset"</span>,charset);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (script.readyState)&#123;</span><br><span class="line">		script.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   </span><br><span class="line">		   <span class="keyword">if</span>(script.readyState == <span class="string">"loaded"</span> || script.readyState == <span class="string">"complete"</span>)&#123;   </span><br><span class="line">				script.onreadystatechange = <span class="literal">null</span>;</span><br><span class="line">				callback();</span><br><span class="line">				<span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].removeChild(<span class="keyword">this</span>);</span><br><span class="line">		   &#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		script.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">			callback();</span><br><span class="line">			<span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].removeChild(<span class="keyword">this</span>);</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;</span><br><span class="line">	script.src = url;</span><br><span class="line">	<span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(script);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以下为腾讯判断ie 7与 ie 8的办法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> winWidth = $(<span class="built_in">window</span>).width();</span><br><span class="line">  <span class="keyword">var</span> winHeight = $(<span class="built_in">document</span>).height();</span><br><span class="line">  <span class="keyword">var</span> shadowWidth = (winWidth - <span class="number">1002</span>)/<span class="number">2</span>;</span><br><span class="line">  $(<span class="string">'#followMe'</span>).height( winHeight );</span><br><span class="line">  <span class="keyword">var</span> dm=<span class="built_in">document</span>.documentMode;</span><br><span class="line">  <span class="keyword">var</span> ie=!-[<span class="number">1</span>,];</span><br><span class="line">  <span class="keyword">var</span> ie7=ie&amp;&amp;dm==<span class="number">7</span>;</span><br><span class="line">  <span class="keyword">var</span> ie8=ie&amp;&amp;dm==<span class="number">8</span>;</span><br><span class="line">  <span class="keyword">if</span>( ie7||ie8 )&#123;</span><br><span class="line">      $(<span class="string">'#fShaowL'</span>).width(shadowWidth+<span class="number">1</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      $(<span class="string">'#fShaowL'</span>).width(shadowWidth);</span><br><span class="line">  &#125;</span><br><span class="line">  $(<span class="string">'#fShaowR'</span>).width(shadowWidth);</span><br><span class="line">  $(<span class="string">'#followBottom'</span>).height( winHeight - <span class="number">1572</span> );</span><br><span class="line">  <span class="keyword">var</span> img = <span class="keyword">new</span> Image();</span><br><span class="line">  img.src= <span class="string">'http://mat1.gtimg.com/www/images/qq2012/guide_k_01.png'</span>;</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure>
+
+<p>以下为腾讯对天气的处理办法，不失为一种对复杂数据的处理办法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> weatherCityMap =&#123;</span><br><span class="line">  <span class="string">"weatherCityWind"</span>:&#123;</span><br><span class="line">    <span class="string">"0"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">""</span>, </span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"微风"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"1"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"东北风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"3-4级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"2"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"东风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"4-5级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"3"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"东南风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"5-6级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"4"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"南风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"6-7级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"5"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"西南风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"7-8级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"6"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"西风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"8-9级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"7"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"西北风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"9-10级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"8"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"北风"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"10-11级"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"9"</span>:&#123;</span><br><span class="line">      <span class="string">"Dir"</span>:<span class="string">"旋转不定"</span>,</span><br><span class="line">      <span class="string">"Power"</span>:<span class="string">"11-12级"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"weatherCityIcon"</span>:&#123;</span><br><span class="line">    <span class="string">"default"</span>:&#123;</span><br><span class="line">      <span class="string">"big"</span>:<span class="string">"http://mat1.gtimg.com/weather/weatherIco/midImg/"</span>,</span><br><span class="line">      <span class="string">"mid"</span>:<span class="string">"http://mat1.gtimg.com/www/images/qq2012/weather/icon35/"</span>,</span><br><span class="line">      <span class="string">"small"</span>:<span class="string">"http://mat1.gtimg.com/www/images/qq2012/weather/"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"00"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m0.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"晴"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"01"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m1.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"多云"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"02"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m2.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"阴"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"03"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m3.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"阵雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"04"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m4.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"雷阵雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"05"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m4.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"雷阵雨并伴有冰雹"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"06"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m6.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"雨夹雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"07"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m7.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"小雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"08"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m8.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"中雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"09"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m9.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"大雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"10"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m10.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"暴雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"11"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m17.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"大暴雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"12"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m17.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"特大暴雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"13"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m14.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"阵雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"14"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m14.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"小雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"15"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m16.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"中雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"16"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m16.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"大雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"17"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m17.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"暴雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"18"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m18.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"雾"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"19"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m6.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"冻雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"20"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m20.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"沙尘暴"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"21"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m8.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"小雨-中雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"22"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m9.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"中雨-大雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"23"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m10.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"大雨-暴雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"24"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m10.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"暴雨-大暴雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"25"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m10.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"大暴雨-特大暴雨"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"26"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m16.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"小雪-中雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"27"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m16.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"中雪-大雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"28"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m17.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"大雪-暴雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"29"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m29.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"浮尘"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"30"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m29.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"扬沙"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"31"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m20.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"强沙尘暴"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"32"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m9.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"飑"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"33"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m33.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"龙卷风"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"34"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m14.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"弱高吹雪"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"35"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m18.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"轻雾"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">"53"</span>:&#123;</span><br><span class="line">      <span class="string">"icon"</span>:<span class="string">"m29.png"</span>,</span><br><span class="line">      <span class="string">"weatherTxt"</span>:<span class="string">"霾"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"living"</span>:&#123;</span><br><span class="line">    <span class="string">'cl'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气晴朗，空气清新，是您晨练的大好时机。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'较适宜晨练，某些气象条件会对晨练产生一定影响，但影响不大。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不宜'</span>, <span class="string">'info'</span>: <span class="string">'某些气象因素对晨练造成不利影响，较不宜晨练。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'气象因素非常不利于室外锻炼，请尽量避免户外晨练。'</span>&#125;],</span><br><span class="line">    <span class="string">'cy'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'炎热'</span>, <span class="string">'info'</span>: <span class="string">'薄型T恤衫。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'热舒适'</span>, <span class="string">'info'</span>: <span class="string">'短套装、T恤夏季服装。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'舒适'</span>, <span class="string">'info'</span>: <span class="string">'长袖服装。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'凉舒适'</span>, <span class="string">'info'</span>: <span class="string">'薄型套装等春秋过渡装。'</span>&#125;,&#123; <span class="string">'type'</span>: <span class="string">'温凉'</span>, <span class="string">'info'</span>: <span class="string">'夹衣或西服套装加薄羊毛衫。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'凉'</span>, <span class="string">'info'</span>: <span class="string">'厚外套加毛衣等春秋服装。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'冷'</span>, <span class="string">'info'</span>: <span class="string">'棉衣加羊毛衫等冬季服装。'</span> &#125;, &#123; <span class="string">'type'</span>:<span class="string">'寒冷'</span>,<span class="string">'info'</span>: <span class="string">'厚羽绒服等隆冬服装。'</span>&#125;],</span><br><span class="line">    <span class="string">'gm'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'少发'</span>, <span class="string">'info'</span>: <span class="string">'各项气象条件适宜，发生感冒机率较低。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较易发'</span>, <span class="string">'info'</span>: <span class="string">'较易发生感冒，体质较弱的朋友请注意适当防护。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'易发'</span>, <span class="string">'info'</span>: <span class="string">'发生感冒机率较大，请加强自我防护避免感冒。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'极易发'</span>, <span class="string">'info'</span>: <span class="string">'极易发生感冒，请特别注意增加衣服保暖防寒避免感冒。'</span>&#125;],</span><br><span class="line">    <span class="string">'xc'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'适宜洗车，未来持续两天无雨天气较好，适合擦洗汽车。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'较适宜洗车，未来一天无雨，风力较小，较适合擦洗汽车。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不宜'</span>, <span class="string">'info'</span>: <span class="string">'较不宜洗车，擦洗一新的汽车可能会蒙上污垢。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'不宜'</span>, <span class="string">'info'</span>: <span class="string">'不宜洗车，路上的泥水可能会再次弄脏您的爱车。'</span>&#125;],</span><br><span class="line">    <span class="string">'zs'</span>: [&#123; <span class="string">'type'</span>: <span class="string">'无'</span>, <span class="string">'info'</span>: <span class="string">'温度不高，其他各项气象条件适宜，中暑机率极低。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'少发'</span>, <span class="string">'info'</span>: <span class="string">'气温偏高，有可能中暑，体质较弱的朋友请注意防暑降温，避免长时间在日光下暴晒或在高温环境中工作。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较易'</span>, <span class="string">'info'</span>: <span class="string">'气温较高，较易中暑，体弱者请避免长时间在日光下暴晒或在高温环境中工作。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'容易'</span>, <span class="string">'info'</span>: <span class="string">'气温很高，热气逼人，容易中暑，请注意防暑降温，避免长时间在日光下暴晒或在高温环境中工作。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'极易'</span>, <span class="string">'info'</span>: <span class="string">'气温极高，热浪滚滚，极易中暑，请注意防暑降温，避免在高温环境中工作。'</span>&#125;],</span><br><span class="line">    <span class="string">'zwx'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'最弱'</span>, <span class="string">'info'</span>: <span class="string">'属弱紫外线辐射天气，无需特别防护。若长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'弱'</span>, <span class="string">'info'</span>: <span class="string">'紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'中等'</span>, <span class="string">'info'</span>: <span class="string">'属中等强度紫外线辐射天气，外出时建议涂擦SPF高于15、PA+的防晒护肤品，戴帽子、太阳镜。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'强'</span>, <span class="string">'info'</span>: <span class="string">'紫外线辐射强，建议涂擦SPF20左右、PA++的防晒护肤品。避免在10点至14点暴露于日光下。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'很强'</span>, <span class="string">'info'</span>: <span class="string">'紫外线辐射极强，建议涂擦SPF20以上、PA++的防晒护肤品，尽量避免暴露于日光下。'</span>&#125;],</span><br><span class="line">    <span class="string">'ls'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'极适宜'</span>, <span class="string">'info'</span>: <span class="string">'极适宜晾晒，请抓紧时机晾晒。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'适宜晾晒，赶紧把久未见阳光的衣物搬出来吸收一下太阳的味道吧！'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'基本适宜'</span>, <span class="string">'info'</span>: <span class="string">'午后温暖的阳光仍能满足你驱潮消霉杀菌的晾晒需求。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'不太适宜'</span>, <span class="string">'info'</span>: <span class="string">'气象要素对晾晒有影响，不太适宜晾晒。若非晾晒不可，请尽量选择通风的地点。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'不适宜晾晒。如果非晾晒不可，请在室内进行并关牢门窗。'</span>&#125;],</span><br><span class="line">    <span class="string">'kqwr'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'优'</span>, <span class="string">'info'</span>: <span class="string">'非常有利于空气污染物稀释、扩散和清除，可在室外正常活动。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'良'</span>, <span class="string">'info'</span>: <span class="string">'有利于空气污染物稀释、扩散和清除，可在室外正常活动。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'中'</span>, <span class="string">'info'</span>: <span class="string">'对空气污染物稀释、扩散和清除无明显影响，易感人群应适当减少室外活动时间。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'较差'</span>, <span class="string">'info'</span>: <span class="string">'较不利于空气污染物稀释、扩散和清除，请适当减少室外活动时间。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'差'</span>, <span class="string">'info'</span>: <span class="string">'不利于空气污染物稀释、扩散和清除，请尽量避免在室外长时间活动。'</span>&#125;],</span><br><span class="line">    <span class="string">'ly'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'明媚阳和微风伴您一路同行，适宜旅游。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'虽然会多云或有风，但仍是出行游玩的好时机，较适宜旅游。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'一般'</span>, <span class="string">'info'</span>: <span class="string">'可能出现阴天、大风、阵雨或沙尘等天气，将会给出行带来一些不便，旅游指数一般。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不宜'</span>, <span class="string">'info'</span>: <span class="string">'可能出现雨雪，强风，大雾等天气，人体在户外会感觉不舒适，将会给出行带来很多不便，较不适宜出游。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'可能出现较大的雨雪，强风，冻雨，沙尘暴等天气，对出行造成一定困难，不适宜旅游。'</span>&#125;],</span><br><span class="line">    <span class="string">'kt'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;,&#123; <span class="string">'type'</span>: <span class="string">'长时间开启'</span>, <span class="string">'info'</span>: <span class="string">'闷热，您需长时间开启制冷空调来降温除湿。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'部分时间开启'</span>, <span class="string">'info'</span>: <span class="string">'天气热，建议您在适当的时候开启制冷空调来降低温度。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'少部分时间'</span>, <span class="string">'info'</span>: <span class="string">'中午的时候您将会感到有点热，因此建议在午后较热时开启制冷空调。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较少开启'</span>, <span class="string">'info'</span>: <span class="string">'您将感到很舒适，一般不需要开启空调。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'开启制暖空调'</span>, <span class="string">'info'</span>: <span class="string">'冷,适当开启制暖空调调节室内温度。'</span>&#125;],</span><br><span class="line">    <span class="string">'dy'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'非常适宜垂钓，风和日丽的天气将陪伴你度过愉快的垂钓时光。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'较适合垂钓，气象条件对垂钓会产生一定影响，但影响不大。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气不好，不适合垂钓，请选择别的娱乐方式。'</span>&#125;],</span><br><span class="line">    <span class="string">'fs'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;,&#123; <span class="string">'type'</span>: <span class="string">'弱'</span>, <span class="string">'info'</span>: <span class="string">'长期在户外，建议涂擦SPF在8-12之间的防晒护肤品。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较弱'</span>, <span class="string">'info'</span>: <span class="string">'建议涂擦SPF在12-15之间，PA+的防晒护肤品。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'中等'</span>, <span class="string">'info'</span>: <span class="string">'建议涂擦SPF指数高于15,PA+的防晒护肤品。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'强'</span>, <span class="string">'info'</span>: <span class="string">'外出时应加强防护，建议涂擦SPF在15—20之间PA++的防晒护肤品。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'极强'</span>, <span class="string">'info'</span>: <span class="string">'外出时应特别加强防护，建议涂擦SPF20以上，PA++的防晒护肤品，并随时补涂。'</span>&#125;],</span><br><span class="line">    <span class="string">'gj'</span>: [&#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气条件很适合逛街，可以尽情享受逛街的乐趣。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'气象要素对逛街有一定影响，比较适宜逛街。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不宜'</span>, <span class="string">'info'</span>: <span class="string">'天气条件不适宜逛街，应尽量避免外出逛街。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'气象条件不适合逛街，请尽量选择室内活动。'</span>&#125;],</span><br><span class="line">    <span class="string">'hc'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气晴朗，温度适宜，非常适合划船或嬉玩各种水上运动。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'较适宜划船，有些气象因素对划船会产生些影响，但影响不大。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'不适宜划船，建议选择别的娱乐方式或采取必要措施。'</span>&#125;],</span><br><span class="line">    <span class="string">'jt'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;,&#123; <span class="string">'type'</span>: <span class="string">'良好'</span>, <span class="string">'info'</span>: <span class="string">'交通气象条件良好，车辆可以正常行驶。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较好'</span>, <span class="string">'info'</span>: <span class="string">'交通气象条件较好，但不适宜高速行驶，司机应更加集中注意力，保持车距。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'一般'</span>, <span class="string">'info'</span>: <span class="string">'交通气象条件一般，刹车距离延长，事故易发期，注意车距，务必小心驾驶。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较差'</span>, <span class="string">'info'</span>: <span class="string">'交通气象条件较差，事故高发期，车辆应低速行驶。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'很差'</span>, <span class="string">'info'</span>: <span class="string">'交通气象条件很差，车辆行驶缓慢，尽量减少出行。'</span>&#125;],</span><br><span class="line">    <span class="string">'ys'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'不带伞'</span>, <span class="string">'info'</span>: <span class="string">'降水概率很低，因此您在出门的时候无须带雨伞。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'带伞'</span>, <span class="string">'info'</span>: <span class="string">'将有阵雨或阵雪，如果您要短时间外出的话可不必带雨伞。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'带伞'</span>, <span class="string">'info'</span>: <span class="string">'有小雨或小雪或中雪，在短时间外出可收起雨伞，但最好还是带上雨伞。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'带伞'</span>, <span class="string">'info'</span>: <span class="string">'会有较大的雨雪天气，您在外出的时候一定要带雨伞，以免被雨水淋湿。'</span>&#125;],</span><br><span class="line">    <span class="string">'mf'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'极适宜'</span>, <span class="string">'info'</span>: <span class="string">'各项气象条件都适宜美发，这为您的头发创造一个健康、洁净的生长环境。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'有某项气象因素会影响您的秀发生长，请注意保养。 '</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'一般'</span>, <span class="string">'info'</span>: <span class="string">'气象条件对美发有一定影响，注意保养您的美发，细心呵护！'</span>&#125;],</span><br><span class="line">    <span class="string">'ysh'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气晴朗，你可以尽情外出享受夜生活的乐趣，不用担心天气会来捣乱。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'虽然有风或有雨雪天气出现，但只要提前有所准备，您仍然可以享受夜生活的乐趣。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不宜'</span>, <span class="string">'info'</span>: <span class="string">'天气会使人体在户外感觉不舒适，建议夜生活最好在室内进行。'</span>&#125;],</span><br><span class="line">    <span class="string">'ffz'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'这种天气去放风筝既可以舒展筋骨，又可放松身心。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'选择合适的地点，还是较适宜放风筝的。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'不宜'</span>, <span class="string">'info'</span>: <span class="string">'气象条件不适宜放风筝。'</span>&#125;],</span><br><span class="line">    <span class="string">'hz'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'保湿防龟裂'</span>, <span class="string">'info'</span>: <span class="string">'天气寒冷，多补水，选用滋润保湿型化妆品，使用润唇膏。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'保湿'</span>, <span class="string">'info'</span>: <span class="string">'皮肤易缺水，用保湿型霜类化妆品，使用润唇膏。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'控油'</span>, <span class="string">'info'</span>: <span class="string">'建议用露质面霜打底，水质无油粉底霜，透明粉饼，粉质胭脂。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'防晒'</span>, <span class="string">'info'</span>: <span class="string">'天气炎热，易出汗，建议使用防脱水防晒指数高的化妆品，经常补粉。'</span>&#125;],</span><br><span class="line">    <span class="string">'fh'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'凉'</span>, <span class="string">'info'</span>: <span class="string">'室外活动注意适当增减衣物。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'冷'</span>, <span class="string">'info'</span>: <span class="string">'室外活动要穿厚实一点，年老体弱者要适当注意保暖。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'寒冷'</span>, <span class="string">'info'</span>: <span class="string">'室外活动要注意保暖，可戴手套与帽子。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'非常寒冷'</span>, <span class="string">'info'</span>: <span class="string">'室外活动注意保暖防寒，可戴厚手套和帽子，年老体弱者避免长时间外出。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'严寒'</span>, <span class="string">'info'</span>: <span class="string">'着羽绒服、皮大衣仍感到寒冷，室外活动须戴厚棉、皮手套和帽子。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'冰冻严寒'</span>, <span class="string">'info'</span>: <span class="string">'极易造成裸露皮肤冻伤，尽量避免野外作业和外出。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'微凉'</span>, <span class="string">'info'</span>: <span class="string">'温度未达到风寒所需的低温，稍作防寒准备即可。'</span>&#125;],</span><br><span class="line">    <span class="string">'xq'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'好'</span>, <span class="string">'info'</span>: <span class="string">'天气晴朗，阳光灿烂，空气温润，和风飘飘，美好的天气会带来一天接踵而来的好心情。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较好'</span>, <span class="string">'info'</span>: <span class="string">'温度舒适，您会觉得精神振奋，意气风发，心情舒畅。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较差'</span>, <span class="string">'info'</span>: <span class="string">'天气阴沉或有雾，会感觉莫名的压抑，情绪低落。'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'差'</span>, <span class="string">'info'</span>: <span class="string">'天气阴沉有雨或有沙尘，闷热潮湿的空气会让人感到胸闷，心情糟糕。'</span>&#125;],</span><br><span class="line">    <span class="string">'yd'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气较好，且紫外线辐射不强，适宜户外运动。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'较适宜在户内低强度运动，户外运动需防晒避风。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不宜'</span>, <span class="string">'info'</span>: <span class="string">'受大风，气压，强紫外线，过高或过低的气温等天气影响，较不宜运动'</span>&#125;],</span><br><span class="line">    <span class="string">'yh'</span>: [&#123; <span class="string">'type'</span>: <span class="string">''</span>, <span class="string">'info'</span>: <span class="string">''</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气晴朗，风和日丽，适宜与情人约会。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气不会有太大的影响，你仍然可以有一个愉快的约会。'</span> &#125;, &#123; <span class="string">'type'</span>: <span class="string">'较不适宜'</span>, <span class="string">'info'</span>: <span class="string">'会有影响人体舒适的不好天气出现，室外约会可能会让恋人们受些苦，最好在温暖的室内促膝谈心'</span>&#125;, &#123; <span class="string">'type'</span>: <span class="string">'不适宜'</span>, <span class="string">'info'</span>: <span class="string">'天气会对人体有较大影响，外出约会还可能会败兴而归，男士请别约美眉逛街。'</span>&#125;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/04/21/javascript-attach-event/" rel="next" title="attachEvent事件">
+                <i class="fa fa-chevron-left"></i> attachEvent事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/07/31/javascript-replace-and-call/" rel="prev" title="javascript中call与replace方法!">
+                javascript中call与replace方法! <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Kevin">
+            
+              <p class="site-author-name" itemprop="name">Kevin</p>
+              <p class="site-description motion-element" itemprop="description">因上努力</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
