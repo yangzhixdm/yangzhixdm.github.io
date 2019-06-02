@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="此问题，早有耳闻，但是一直都没有亲身碰到过，也就没有过多的去在意这些问题。 这一回总算是见识到了ie的厉害，虽是在ie选项中大大的写着ie版本是ie11 ，但是有些部分确实走的ie6的内核，怪不得微软天天在各种window update. 解决此问题的方法很简单，给你需要显示的内容的后面加一个iframe，让他去挡住select不要穿透过来，这样世界就算是清净了。 如下html: 12345678">
 <meta name="keywords" content="前端, javaScript, github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/06/02/hello-world/index.html">
+<meta property="og:title" content="IE6 select穿透问题(div 定位无法遮盖select)!">
+<meta property="og:url" content="http://yoursite.com/2014/11/17/ie6-select-bug/index.html">
 <meta property="og:site_name" content="何必云梯">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="此问题，早有耳闻，但是一直都没有亲身碰到过，也就没有过多的去在意这些问题。 这一回总算是见识到了ie的厉害，虽是在ie选项中大大的写着ie版本是ie11 ，但是有些部分确实走的ie6的内核，怪不得微软天天在各种window update. 解决此问题的方法很简单，给你需要显示的内容的后面加一个iframe，让他去挡住select不要穿透过来，这样世界就算是清净了。 如下html: 12345678">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-01T18:03:50.229Z">
+<meta property="og:updated_time" content="2019-06-02T04:31:40.051Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="IE6 select穿透问题(div 定位无法遮盖select)!">
+<meta name="twitter:description" content="此问题，早有耳闻，但是一直都没有亲身碰到过，也就没有过多的去在意这些问题。 这一回总算是见识到了ie的厉害，虽是在ie选项中大大的写着ie版本是ie11 ，但是有些部分确实走的ie6的内核，怪不得微软天天在各种window update. 解决此问题的方法很简单，给你需要显示的内容的后面加一个iframe，让他去挡住select不要穿透过来，这样世界就算是清净了。 如下html: 12345678">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/02/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2014/11/17/ie6-select-bug/">
 
 
 
 
 
-  <title>Hello World | 何必云梯</title>
+  <title>IE6 select穿透问题(div 定位无法遮盖select)! | 何必云梯</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/11/17/ie6-select-bug/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kevin">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">IE6 select穿透问题(div 定位无法遮盖select)!</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T02:03:50+08:00">
-                2019-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-11-17T12:30:01+08:00">
+                2014-11-17
               </time>
             
 
@@ -300,19 +300,15 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>此问题，早有耳闻，但是一直都没有亲身碰到过，也就没有过多的去在意这些问题。</p>
+<p>这一回总算是见识到了ie的厉害，虽是在ie选项中大大的写着ie版本是ie11 ，但是有些部分确实走的ie6的内核，怪不得微软天天在各种window update.</p>
+<p>解决此问题的方法很简单，给你需要显示的内容的后面加一个iframe，让他去挡住select不要穿透过来，这样世界就算是清净了。</p>
+<p>如下html:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>select穿透问题<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>select穿透问题<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"wrap"</span> <span class="attr">style</span>=<span class="string">"position:relative;width:200px;height:200px;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span>&gt;</span>需要显示的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">class</span>=<span class="string">"ie-select-iframe"</span> <span class="attr">style</span>=<span class="string">"position:absolute;top:0;left:0;z-index:-1;width:200px;"</span> <span class="attr">scrolling</span>=<span class="string">"no"</span> <span class="attr">frameborder</span>=<span class="string">"0"</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>这里需要注意的是:</p>
+<p>1 wrap只是一个容器，所以border之类的样式，最好不要放在这里，因为这个div是会被select穿透的。</p>
+<p>2 iframe的宽度最好给一个值，在ie6下，要使用100%，似乎还要做一些别的设置，需要给,html,body都给height:100%,才能实现，否则在ie6下无效。</p>
 
       
     </div>
@@ -337,8 +333,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/08/front-end-conclusion/" rel="next" title="前端技术总结">
-                <i class="fa fa-chevron-left"></i> 前端技术总结
+              <a href="/2014/10/22/javascript-aop/" rel="next" title="javascript中面向切面编程[Aop]">
+                <i class="fa fa-chevron-left"></i> javascript中面向切面编程[Aop]
               </a>
             
           </div>
@@ -346,6 +342,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/25/regexp-more/" rel="prev" title="正则表达式进阶">
+                正则表达式进阶 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -397,17 +397,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,22 +442,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

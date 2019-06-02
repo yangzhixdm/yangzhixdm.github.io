@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="因上努力">
+<meta name="description" content="最近很长一段时间一直在关注前端工程方面的问题。思考上线之后文件合并的问题。 根据个人思考，合并部署文件主要分以下步骤： //1 读取文件，获取字符流//2 扫描字符串，进行正则匹配，读取中需要合并的文件路径，放入数组//3 根据数组，读取文件，对不同的文件进行合并//4 合并需要用到文本摘要算法//5 这里要注意，针对css 文件中的背景图片同样需要进行匹配，这样在上线可以解决缓存的问题。//6">
 <meta name="keywords" content="前端, javaScript, github">
-<meta property="og:type" content="website">
-<meta property="og:title" content="何必云梯">
-<meta property="og:url" content="http://yoursite.com/archives/2019/06/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则匹配script脚本节点">
+<meta property="og:url" content="http://yoursite.com/2015/06/27/regexp-mathch-script-node/index.html">
 <meta property="og:site_name" content="何必云梯">
-<meta property="og:description" content="因上努力">
+<meta property="og:description" content="最近很长一段时间一直在关注前端工程方面的问题。思考上线之后文件合并的问题。 根据个人思考，合并部署文件主要分以下步骤： //1 读取文件，获取字符流//2 扫描字符串，进行正则匹配，读取中需要合并的文件路径，放入数组//3 根据数组，读取文件，对不同的文件进行合并//4 合并需要用到文本摘要算法//5 这里要注意，针对css 文件中的背景图片同样需要进行匹配，这样在上线可以解决缓存的问题。//6">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-02T03:53:52.576Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何必云梯">
-<meta name="twitter:description" content="因上努力">
+<meta name="twitter:title" content="正则匹配script脚本节点">
+<meta name="twitter:description" content="最近很长一段时间一直在关注前端工程方面的问题。思考上线之后文件合并的问题。 根据个人思考，合并部署文件主要分以下步骤： //1 读取文件，获取字符流//2 扫描字符串，进行正则匹配，读取中需要合并的文件路径，放入数组//3 根据数组，读取文件，对不同的文件进行合并//4 合并需要用到文本摘要算法//5 这里要注意，针对css 文件中的背景图片同样需要进行匹配，这样在上线可以解决缓存的问题。//6">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/06/">
+  <link rel="canonical" href="http://yoursite.com/2015/06/27/regexp-mathch-script-node/">
 
 
 
 
 
-  <title>归档 | 何必云梯</title>
+  <title>正则匹配script脚本节点 | 何必云梯</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,72 +219,159 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 24 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/27/regexp-mathch-script-node/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="何必云梯">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/02/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">正则匹配script脚本节点</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-02T02:03:50+08:00" content="2019-06-02">
-          06-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-27T13:15:22+08:00">
+                2015-06-27
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>最近很长一段时间一直在关注前端工程方面的问题。<br>思考上线之后文件合并的问题。</p>
+<p>根据个人思考，合并部署文件主要分以下步骤：</p>
+<p>//1 读取文件，获取字符流<br>//2 扫描字符串，进行正则匹配，读取中需要合并的文件路径，放入数组<br>//3 根据数组，读取文件，对不同的文件进行合并<br>//4 合并需要用到文本摘要算法<br>//5 这里要注意，针对css 文件中的背景图片同样需要进行匹配，这样在上线可以解决缓存的问题。<br>//6 写入新文件<br>//7 在html文件中，加入新的文件路路径</p>
+<p>其中麻烦一点，可能就是扫描扫script问题。</p>
+<p>自己琢磨得出两个正则匹配文件script节点如下，也算是对正则功力的一种提升吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="regexp">/&lt;script[\s]+[^&gt;]+=[\s]*[^&gt;]+&gt;&lt;\/script&gt;/</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> reg2 = <span class="regexp">/&lt;script[\s]+(?:[^&gt;]+=[\s]*[^&gt;]+)*(?:src[\s]*=[\s]*['"]([^&gt;]+(?:\.js))['"])&gt;&lt;\/script&gt;/g</span>;</span><br></pre></td></tr></table></figure>
+
+<p>第一个正则仅仅只是匹配&lt;script&gt;节点，并且包含属性。</p>
+<p>第二个正则相对第一个要更加的准确，匹配script节点中，是否存在src属性，如不存在，那么可能只是script片段，并非外部引用的<br>js文件。当然这里还存在一个问题，type并没有做javascript匹配，毕竟可能存在前端模版类的js，如type=’text/html’.</p>
+<p>这里需要注意几点：</p>
+<p>1 [\s]+ 表示必须存在空格,如 &lt;script 后面，不能直接跟属性，必须有空格隔开.</p>
+<p>2 ?: 表示非捕捉匹配，是为了让  $1能正确的匹配到自己想到的元素，这里我更加想得到文件的具体路径。所以第一个括号，就不匹配了，</p>
+<p>方便$1给直接获取，同时不捕捉也能提升效率。</p>
+<p>至于其它的步骤，采用nodejs皆可以实现。</p>
+<p>偶有所悟，谨防忘记。</p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/06/nodejs-and-npm-config/" rel="next" title="nodeJS 与 npm(node pagkage manager) 配置">
+                <i class="fa fa-chevron-left"></i> nodeJS 与 npm(node pagkage manager) 配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/11/how-javascript-timer-work/" rel="prev" title="JavaScript中的定时器(Timer) 是如何工作的!">
+                JavaScript中的定时器(Timer) 是如何工作的! <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +379,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -496,6 +588,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

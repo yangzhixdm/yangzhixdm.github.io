@@ -79,18 +79,23 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="一直准备开始学习nodejs,但是不得不说nodejs在Windows上的安装与配置是个坑。尤其是npm的中模块位置的配置。好了废话不多说，首先下载nodejs版本。然后一路next即可，即可安装成功，其中你可以选择自己的安装路径。我这里是安装在d:\nodejs下面。安装完成之后命令行中输入: 12node -vnpm -v  出现如下输出就算是安装成功了。 那么接下来存在的问题就是，如果直接使">
 <meta name="keywords" content="前端, javaScript, github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/06/02/hello-world/index.html">
+<meta property="og:title" content="nodeJS 与 npm(node pagkage manager) 配置">
+<meta property="og:url" content="http://yoursite.com/2015/06/06/nodejs-and-npm-config/index.html">
 <meta property="og:site_name" content="何必云梯">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="一直准备开始学习nodejs,但是不得不说nodejs在Windows上的安装与配置是个坑。尤其是npm的中模块位置的配置。好了废话不多说，首先下载nodejs版本。然后一路next即可，即可安装成功，其中你可以选择自己的安装路径。我这里是安装在d:\nodejs下面。安装完成之后命令行中输入: 12node -vnpm -v  出现如下输出就算是安装成功了。 那么接下来存在的问题就是，如果直接使">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-01T18:03:50.229Z">
+<meta property="og:image" content="http://yoursite.com/postimg/20150606122011869.png">
+<meta property="og:image" content="http://yoursite.com/postimg/20150606122339638.png">
+<meta property="og:image" content="http://yoursite.com/postimg/20150606122016010.png">
+<meta property="og:image" content="http://yoursite.com/postimg/20150606121756430.png">
+<meta property="og:updated_time" content="2019-06-02T04:02:57.694Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="nodeJS 与 npm(node pagkage manager) 配置">
+<meta name="twitter:description" content="一直准备开始学习nodejs,但是不得不说nodejs在Windows上的安装与配置是个坑。尤其是npm的中模块位置的配置。好了废话不多说，首先下载nodejs版本。然后一路next即可，即可安装成功，其中你可以选择自己的安装路径。我这里是安装在d:\nodejs下面。安装完成之后命令行中输入: 12node -vnpm -v  出现如下输出就算是安装成功了。 那么接下来存在的问题就是，如果直接使">
+<meta name="twitter:image" content="http://yoursite.com/postimg/20150606122011869.png">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/06/02/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2015/06/06/nodejs-and-npm-config/">
 
 
 
 
 
-  <title>Hello World | 何必云梯</title>
+  <title>nodeJS 与 npm(node pagkage manager) 配置 | 何必云梯</title>
   
 
 
@@ -233,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/06/06/nodejs-and-npm-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kevin">
@@ -250,7 +255,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">nodeJS 与 npm(node pagkage manager) 配置</h1>
         
 
         <div class="post-meta">
@@ -262,8 +267,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T02:03:50+08:00">
-                2019-06-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-06T12:16:22+08:00">
+                2015-06-06
               </time>
             
 
@@ -300,19 +305,27 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <p>一直准备开始学习nodejs,但是不得不说nodejs在Windows上的安装与配置是个坑。<br>尤其是npm的中模块位置的配置。<br>好了废话不多说，首先下载nodejs版本。<br>然后一路next即可，即可安装成功，其中你可以选择自己的安装路径。我这里是安装在d:\nodejs下面。<br>安装完成之后命令行中输入:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>出现如下输出就算是安装成功了。<br><img src="/postimg/20150606122011869.png" alt></p>
+<p>那么接下来存在的问题就是，如果直接使用npm 安装模块，那么它会将你的模块安装到c盘的 appdata下面去，以保证全局可以使用。<br>这样的话，不方便管理。那么我想把它直接放在Nodejs的安装目录下，且能够保证全局下使用，怎么办呢？<br>进入cmd命令行，输入如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> prefix <span class="string">"D:\nodejs\node_global"</span></span><br><span class="line">npm config <span class="built_in">set</span> cache <span class="string">"D:\nodejs\node_cache"</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>注意：这里需要注意一点，如果npm 之前由于使用set prefix出错，导致 输入npm 之后，光标一直在闪，但是没有任何反应的情况。那么可以去到　c盘  C:\Users\Administrator 目录下（我这里是admin用户），修改 .npmrc 文件，或者将其删除，则一切正常。</p>
+<p>当然首先需要在 nodejs的下面手动建立 node_global 和node_cache目录。<br>node_global用来存放你下载的模块，node_cache 目录自然是存放cache。<br><img src="/postimg/20150606122339638.png" alt></p>
+<p>之后你在使用 npm install 模块名 -g<br>那么你下载的模块将会保存在 node_global中，而不会再保存在 c盘的appdata下面去了。</p>
+<p>接下来还有个问题需要处理。<br>现在模块是保存好了，但是当我们需要用到的时候require的时候，却找不到模块。<br>这里就需要配置环境变量NODE_PATH.</p>
+<p>在我的电脑-&gt;属性-&gt;高级系统配置 -&gt;环境变量-&gt;系统变量中添加 NODE_PATH.<br>然后将你的node_global 路径输入进去。<br>主要这里的路径需要带上node_modules.<br>如：我的global 目录为  <code>d:\nodejs\node_global</code><br>那么这里我的NODE_PATH 配置为 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">d:\nodejs\node_global\node_mudules</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p><img src="/postimg/20150606122016010.png" alt></p>
+<p>这里可以先安装express 模块测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install express -g</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>等待光标转动完毕后，可以在node_global 中的 node_mudules 查看到express 目录，<br>这证明exprss安装成功，且位置正确。<br>配置完NODE_PATH毕之后再cmd 命令行中，输入命令，出现如下界面，这表示成功获取到 express 模块，配置正确。</p>
+<p><img src="/postimg/20150606121756430.png" alt></p>
+<p>NodeJs踩过的坑，以记录之，谨防忘记。</p>
 
       
     </div>
@@ -337,8 +350,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/08/front-end-conclusion/" rel="next" title="前端技术总结">
-                <i class="fa fa-chevron-left"></i> 前端技术总结
+              <a href="/2015/05/30/javascript-reflact-ioc/" rel="next" title="反射与依赖注入">
+                <i class="fa fa-chevron-left"></i> 反射与依赖注入
               </a>
             
           </div>
@@ -346,6 +359,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/27/regexp-mathch-script-node/" rel="prev" title="正则匹配script脚本节点">
+                正则匹配script脚本节点 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -397,17 +414,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -451,22 +459,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

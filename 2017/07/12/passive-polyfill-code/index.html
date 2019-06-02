@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="因上努力">
+<meta name="description" content="看到了一段对Google的 Passive event listeners 特性进行 polyfill 的代码，用的太巧妙了，值得细读，简直帅到没朋友 12345678910111213141516171819202122// Test via a getter in the options object to see // if the passive property is accessedv">
 <meta name="keywords" content="前端, javaScript, github">
-<meta property="og:type" content="website">
-<meta property="og:title" content="何必云梯">
-<meta property="og:url" content="http://yoursite.com/archives/2019/06/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="passive polyfill 代码">
+<meta property="og:url" content="http://yoursite.com/2017/07/12/passive-polyfill-code/index.html">
 <meta property="og:site_name" content="何必云梯">
-<meta property="og:description" content="因上努力">
+<meta property="og:description" content="看到了一段对Google的 Passive event listeners 特性进行 polyfill 的代码，用的太巧妙了，值得细读，简直帅到没朋友 12345678910111213141516171819202122// Test via a getter in the options object to see // if the passive property is accessedv">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-02T02:18:34.199Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="何必云梯">
-<meta name="twitter:description" content="因上努力">
+<meta name="twitter:title" content="passive polyfill 代码">
+<meta name="twitter:description" content="看到了一段对Google的 Passive event listeners 特性进行 polyfill 的代码，用的太巧妙了，值得细读，简直帅到没朋友 12345678910111213141516171819202122// Test via a getter in the options object to see // if the passive property is accessedv">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/06/">
+  <link rel="canonical" href="http://yoursite.com/2017/07/12/passive-polyfill-code/">
 
 
 
 
 
-  <title>归档 | 何必云梯</title>
+  <title>passive polyfill 代码 | 何必云梯</title>
   
 
 
@@ -144,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -218,72 +219,145 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        嗯..! 目前共计 24 篇日志。 继续努力。
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/12/passive-polyfill-code/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="何必云梯">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/02/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">passive polyfill 代码</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-02T02:03:50+08:00" content="2019-06-02">
-          06-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-12T20:30:07+08:00">
+                2017-07-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p>看到了一段对Google的 Passive event listeners 特性进行 polyfill 的代码，用的太巧妙了，值得细读，简直帅到没朋友</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Test via a getter in the options object to see </span></span><br><span class="line"><span class="comment">// if the passive property is accessed</span></span><br><span class="line"><span class="keyword">var</span> supportsPassive = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> opts = <span class="built_in">Object</span>.defineProperty(&#123;&#125;, <span class="string">'passive'</span>, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function() &#123;</span><br><span class="line">      supportsPassive = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">"test"</span>, <span class="literal">null</span>, opts);</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Use our detect's results. </span></span><br><span class="line"><span class="comment">// passive applied if supported, capture will be false either way.</span></span><br><span class="line">elem.addEventListener(</span><br><span class="line">  <span class="string">'touchstart'</span>,</span><br><span class="line">  fn,</span><br><span class="line">  supportsPassive ? &#123; <span class="attr">passive</span>: <span class="literal">true</span> &#125; : <span class="literal">false</span></span><br><span class="line">); </span><br><span class="line"></span><br><span class="line"><span class="comment">//mdn object.defineProperty</span></span><br><span class="line">https:<span class="comment">//developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty</span></span><br></pre></td></tr></table></figure>
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/09/long-poll/" rel="next" title="长轮询(LongPoll)">
+                <i class="fa fa-chevron-left"></i> 长轮询(LongPoll)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/08/front-end-conclusion/" rel="prev" title="前端技术总结">
+                前端技术总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -291,6 +365,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -496,6 +574,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
