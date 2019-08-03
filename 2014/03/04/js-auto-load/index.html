@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/postimg/20140304111339109.png">
 <meta property="og:image" content="http://yoursite.com/postimg/20140304111927062.png">
-<meta property="og:updated_time" content="2019-06-02T09:03:46.459Z">
+<meta property="og:updated_time" content="2019-06-02T16:23:48.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于jQuery中的自加载">
 <meta name="twitter:description" content="估计很多人都会用到jQuery中的each方法。 那就来看一看jQuery都干了些什么。 each找到jquery中的each源码： 123456789101112131415161718192021222324252627282930313233343536373839each: function( object, callback, args ) &amp;#123;  var name, i = 0">
@@ -328,15 +328,16 @@
 <h3 id="根据jQuery的源码使用回调函数参数"><a href="#根据jQuery的源码使用回调函数参数" class="headerlink" title="根据jQuery的源码使用回调函数参数"></a>根据jQuery的源码使用回调函数参数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$.each($(<span class="string">".demo"</span>),<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a + <span class="string">""</span> + $(a).attr(<span class="string">"class"</span>));</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 <p>从源码可以看到:</p>
-<p>callback.call( object[ i ], i, object[ i++ ] )<br>最后都将当前对象通过call方法传递给了回调函数，那么就可以像上面一样去使用当前对象中的属性。当然也可以直接用this来调用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">callback.call( object[ i ], i, object[ i++ ] )</span><br></pre></td></tr></table></figure>
+
+<p>最后都将当前对象通过call方法传递给了回调函数，那么就可以像上面一样去使用当前对象中的属性。当然也可以直接用this来调用。</p>
 <p>如果说复杂些的东西，比如，这里我是将$(“.demo”)作为object传递进去给$.each()</p>
 <p>如里某些时候不是传递的jQuery或者html对象。而是一个Object或者array。</p>
 <p>而在array中又存在很多其它的object或者方法。</p>
 <p>这样就能弄出更多的效果。</p>
 <h3 id="采用call或者apply实现回调模式"><a href="#采用call或者apply实现回调模式" class="headerlink" title="采用call或者apply实现回调模式."></a>采用call或者apply实现回调模式.</h3><p>从上面的代码可以看到：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">callback.call(obj,args)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">callback.call(obj,args)</span><br><span class="line">callback.apply([obj],args)</span><br></pre></td></tr></table></figure>
 
-<p>callback.apply([obj],args)</p>
 <p>之类的代码，这里只需要传递callback函数，就能实现自己调用，这对于提高代码的复用程度用处不小。</p>
 <p>但是也存在某些缺点，比如代码可读性降低，耦合程度增加等。</p>
 <p>偶有所得，以记录之，以防忘记！</p>
@@ -455,7 +456,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
