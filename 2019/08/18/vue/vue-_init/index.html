@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="resolveConstructorOptions123456789101112if (options &amp;amp;&amp;amp; options._isComponent) &amp;#123;  // optimize internal component instantiation  // since dynamic options merging is pretty slow, and none of">
+<meta name="keywords" content="前端, javaScript, github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-init">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/vue/vue-_init/index.html">
+<meta property="og:site_name" content="何必云梯">
+<meta property="og:description" content="resolveConstructorOptions123456789101112if (options &amp;amp;&amp;amp; options._isComponent) &amp;#123;  // optimize internal component instantiation  // since dynamic options merging is pretty slow, and none of">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-18T04:50:08.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue-init">
+<meta name="twitter:description" content="resolveConstructorOptions123456789101112if (options &amp;amp;&amp;amp; options._isComponent) &amp;#123;  // optimize internal component instantiation  // since dynamic options merging is pretty slow, and none of">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/vue/vue-_init/">
+
+
+
+
+
+  <title>Vue-init | 何必云梯</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">何必云梯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">站在巨人的肩膀上</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/vue/vue-_init/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="何必云梯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue-init</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T12:58:30+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="resolveConstructorOptions"><a href="#resolveConstructorOptions" class="headerlink" title="resolveConstructorOptions"></a>resolveConstructorOptions</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (options &amp;&amp; options._isComponent) &#123;</span><br><span class="line">  <span class="comment">// optimize internal component instantiation</span></span><br><span class="line">  <span class="comment">// since dynamic options merging is pretty slow, and none of the</span></span><br><span class="line">  <span class="comment">// internal component options needs special treatment.</span></span><br><span class="line">  initInternalComponent(vm, options)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  vm.$options = mergeOptions(</span><br><span class="line">    resolveConstructorOptions(vm.constructor),</span><br><span class="line">    options || &#123;&#125;,</span><br><span class="line">    vm</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mergeOptions,首先调用resolveConstructorOptions,处理构造方法options<br>将Vue默认构造器的options,赋值给当前的options属性，并且判定super属性</p>
+<h4 id="mergeOptions"><a href="#mergeOptions" class="headerlink" title="mergeOptions"></a>mergeOptions</h4><p>合并options，并且本地化（normalize) props,inject,directives</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">normalizeProps(child, vm)</span><br><span class="line">normalizeInject(child, vm)</span><br><span class="line">normalizeDirectives(child)</span><br></pre></td></tr></table></figure>
+
+<p>合并属性，并且合并Field字段策略</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">mergeOptions</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="keyword">const</span> options = &#123;&#125;</span><br><span class="line">  <span class="keyword">let</span> key</span><br><span class="line">  <span class="keyword">for</span> (key <span class="keyword">in</span> parent) &#123;</span><br><span class="line">    mergeField(key)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (key <span class="keyword">in</span> child) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!hasOwn(parent, key)) &#123;</span><br><span class="line">      mergeField(key)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">mergeField</span> (<span class="params">key</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> strat = strats[key] || defaultStrat</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'调用strat策略方法'</span>)</span><br><span class="line">    options[key] = strat(parent[key], child[key], vm, key)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="strats"><a href="#strats" class="headerlink" title="strats"></a>strats</h4><p>strats中定义属性的不同调用方式。 Vue内部对不同的字段设定了不同的策略。比如对于data方法的策略：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">strats.data = <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  parentVal: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  childVal: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  vm?: Component</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): ?<span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!vm) &#123;</span><br><span class="line">    <span class="keyword">if</span> (childVal &amp;&amp; <span class="keyword">typeof</span> childVal !== <span class="string">'function'</span>) &#123;</span><br><span class="line">      process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(</span><br><span class="line">        <span class="string">'The "data" option should be a function '</span> +</span><br><span class="line">        <span class="string">'that returns a per-instance value in component '</span> +</span><br><span class="line">        <span class="string">'definitions.'</span>,</span><br><span class="line">        vm</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> parentVal</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mergeDataOrFn(parentVal, childVal)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> mergeDataOrFn(parentVal, childVal, vm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>watch 的strats策略</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">strats.watch = <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  parentVal: ?Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  childVal: ?Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  vm?: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  key: string</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): ?<span class="title">Object</span> </span>&#123;</span><br><span class="line">  <span class="comment">// work around Firefox's Object.prototype.watch...</span></span><br><span class="line">  <span class="keyword">if</span> (parentVal === nativeWatch) parentVal = <span class="literal">undefined</span></span><br><span class="line">  <span class="keyword">if</span> (childVal === nativeWatch) childVal = <span class="literal">undefined</span></span><br><span class="line">  <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">  <span class="keyword">if</span> (!childVal) <span class="keyword">return</span> <span class="built_in">Object</span>.create(parentVal || <span class="literal">null</span>)</span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    assertObjectType(key, childVal, vm)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!parentVal) <span class="keyword">return</span> childVal</span><br><span class="line">  <span class="keyword">const</span> ret = &#123;&#125;</span><br><span class="line">  extend(ret, parentVal)</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> childVal) &#123;</span><br><span class="line">    <span class="keyword">let</span> parent = ret[key]</span><br><span class="line">    <span class="keyword">const</span> child = childVal[key]</span><br><span class="line">    <span class="keyword">if</span> (parent &amp;&amp; !<span class="built_in">Array</span>.isArray(parent)) &#123;</span><br><span class="line">      parent = [parent]</span><br><span class="line">    &#125;</span><br><span class="line">    ret[key] = parent</span><br><span class="line">      ? parent.concat(child)</span><br><span class="line">      : <span class="built_in">Array</span>.isArray(child) ? child : [child]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Other object hashes.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">strats.props =</span><br><span class="line">strats.methods =</span><br><span class="line">strats.inject =</span><br><span class="line">strats.computed = <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  parentVal: ?Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  childVal: ?Object,</span></span></span><br><span class="line"><span class="function"><span class="params">  vm?: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  key: string</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): ?<span class="title">Object</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (childVal &amp;&amp; process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    assertObjectType(key, childVal, vm)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (!parentVal) <span class="keyword">return</span> childVal</span><br><span class="line">  <span class="keyword">const</span> ret = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  extend(ret, parentVal)</span><br><span class="line">  <span class="keyword">if</span> (childVal) extend(ret, childVal)</span><br><span class="line">  <span class="keyword">return</span> ret</span><br><span class="line">&#125;</span><br><span class="line">strats.provide = mergeDataOrFn</span><br></pre></td></tr></table></figure>
+
+<p>对于data, props，以及watch都有不同的策略方案。<br>data方案调用 mergeDataOrFn 方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">mergeDataOrFn</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  parentVal: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  childVal: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  vm?: Component</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): ?<span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'mergeDataOrFn: 合并data或者function'</span>)</span><br><span class="line">  <span class="keyword">if</span> (!vm) &#123;</span><br><span class="line">    <span class="comment">// in a Vue.extend merge, both should be functions</span></span><br><span class="line">    <span class="keyword">if</span> (!childVal) &#123;</span><br><span class="line">      <span class="keyword">return</span> parentVal</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!parentVal) &#123;</span><br><span class="line">      <span class="keyword">return</span> childVal</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// when parentVal &amp; childVal are both present,</span></span><br><span class="line">    <span class="comment">// we need to return a function that returns the</span></span><br><span class="line">    <span class="comment">// merged result of both functions... no need to</span></span><br><span class="line">    <span class="comment">// check if parentVal is a function here because</span></span><br><span class="line">    <span class="comment">// it has to be a function to pass previous merges.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">mergedDataFn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> mergeData(</span><br><span class="line">        <span class="keyword">typeof</span> childVal === <span class="string">'function'</span> ? childVal.call(<span class="keyword">this</span>, <span class="keyword">this</span>) : childVal,</span><br><span class="line">        <span class="keyword">typeof</span> parentVal === <span class="string">'function'</span> ? parentVal.call(<span class="keyword">this</span>, <span class="keyword">this</span>) : parentVal</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">mergedInstanceDataFn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// instance merge</span></span><br><span class="line">      <span class="keyword">const</span> instanceData = <span class="keyword">typeof</span> childVal === <span class="string">'function'</span></span><br><span class="line">        ? childVal.call(vm, vm)</span><br><span class="line">        : childVal</span><br><span class="line">      <span class="keyword">const</span> defaultData = <span class="keyword">typeof</span> parentVal === <span class="string">'function'</span></span><br><span class="line">        ? parentVal.call(vm, vm)</span><br><span class="line">        : parentVal</span><br><span class="line">      <span class="keyword">if</span> (instanceData) &#123;</span><br><span class="line">        <span class="keyword">return</span> mergeData(instanceData, defaultData)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> defaultData</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeData</span> (<span class="params">to: Object, from: ?Object</span>): <span class="title">Object</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"mergeData: 合并data, 主要用于mixin以及extend会涉及到data数据的合并"</span>)</span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">from</span>) <span class="keyword">return</span> to</span><br><span class="line">  <span class="keyword">let</span> key, toVal, fromVal</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> keys = hasSymbol</span><br><span class="line">    ? <span class="built_in">Reflect</span>.ownKeys(<span class="keyword">from</span>)</span><br><span class="line">    : <span class="built_in">Object</span>.keys(<span class="keyword">from</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</span><br><span class="line">    key = keys[i]</span><br><span class="line">    <span class="comment">// in case the object is already observed...</span></span><br><span class="line">    <span class="keyword">if</span> (key === <span class="string">'__ob__'</span>) <span class="keyword">continue</span></span><br><span class="line">    toVal = to[key]</span><br><span class="line">    fromVal = <span class="keyword">from</span>[key]</span><br><span class="line">    <span class="keyword">if</span> (!hasOwn(to, key)) &#123;</span><br><span class="line">      <span class="keyword">set</span>(to, key, fromVal)</span><br><span class="line">    &#125; else if (</span><br><span class="line">      toVal !== fromVal &amp;&amp;</span><br><span class="line">      isPlainObject(toVal) &amp;&amp;</span><br><span class="line">      isPlainObject(fromVal)</span><br><span class="line">    ) &#123;</span><br><span class="line">      mergeData(toVal, fromVal)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> to</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="initProxy"><a href="#initProxy" class="headerlink" title="initProxy"></a>initProxy</h4><p>设置Prxoy,设置代理属性</p>
+<h4 id="initLifecycle"><a href="#initLifecycle" class="headerlink" title="initLifecycle"></a>initLifecycle</h4><p>初始化生命周期属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initLifecycle</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> options = vm.$options</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'initLifecycle生命周期'</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// locate first non-abstract parent</span></span><br><span class="line">  <span class="keyword">let</span> parent = options.parent</span><br><span class="line">  <span class="keyword">if</span> (parent &amp;&amp; !options.abstract) &#123;</span><br><span class="line">    <span class="keyword">while</span> (parent.$options.abstract &amp;&amp; parent.$parent) &#123;</span><br><span class="line">      parent = parent.$parent</span><br><span class="line">    &#125;</span><br><span class="line">    parent.$children.push(vm)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  vm.$parent = parent</span><br><span class="line">  vm.$root = parent ? parent.$root : vm</span><br><span class="line"></span><br><span class="line">  vm.$children = []</span><br><span class="line">  vm.$refs = &#123;&#125;</span><br><span class="line"></span><br><span class="line">  vm._watcher = <span class="literal">null</span></span><br><span class="line">  vm._inactive = <span class="literal">null</span></span><br><span class="line">  vm._directInactive = <span class="literal">false</span></span><br><span class="line">  vm._isMounted = <span class="literal">false</span></span><br><span class="line">  vm._isDestroyed = <span class="literal">false</span></span><br><span class="line">  vm._isBeingDestroyed = <span class="literal">false</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'初始化设置一堆属性,$children,$refs,__watcher, _inactive,_directInactive, _isMounted,_isDestroyed,_isBeingDestroyed'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="initEvents"><a href="#initEvents" class="headerlink" title="initEvents"></a>initEvents</h4><p>初始化events,此处会设置listener属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initEvents</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'初始化事件'</span>)</span><br><span class="line">  vm._events = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  vm._hasHookEvent = <span class="literal">false</span></span><br><span class="line">  <span class="comment">// init parent attached events</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'根据_parentListeners设置listeners'</span>)</span><br><span class="line">  <span class="keyword">const</span> listeners = vm.$options._parentListeners</span><br><span class="line">  <span class="keyword">if</span> (listeners) &#123;</span><br><span class="line">    updateComponentListeners(vm, listeners)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="initRender"><a href="#initRender" class="headerlink" title="initRender"></a>initRender</h4><p>初始化_c和$createElement方法，_c方法主要用于内部调用，包括内部编译生成的代码会使用_c方法，而$createElemnt主要用于外部调用，供开发者调用，然后设置$attrs和$listeners</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initRender</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'initRender'</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'设置vm._vnode, _staticTrees'</span>)</span><br><span class="line">  vm._vnode = <span class="literal">null</span> <span class="comment">// the root of the child tree</span></span><br><span class="line">  vm._staticTrees = <span class="literal">null</span> <span class="comment">// v-once cached trees</span></span><br><span class="line">  <span class="keyword">const</span> options = vm.$options</span><br><span class="line">  <span class="keyword">const</span> parentVnode = vm.$vnode = options._parentVnode <span class="comment">// the placeholder node in parent tree</span></span><br><span class="line">  <span class="comment">// parentNode渲染上下文</span></span><br><span class="line">  <span class="keyword">const</span> renderContext = parentVnode &amp;&amp; parentVnode.context</span><br><span class="line">  <span class="comment">// 设置插槽resolveSlots(options._renderChildren, renderContext)</span></span><br><span class="line">  vm.$slots = resolveSlots(options._renderChildren, renderContext)</span><br><span class="line">  vm.$scopedSlots = emptyObject</span><br><span class="line">  <span class="comment">// 绑定createElement方法到this实例，以便我们可以获取到恰当的上下文在内部，参数顺序：tag, data, children, normalizationType, alwaysNormalize,私有内部使用用来渲染从模版编译过来的functions</span></span><br><span class="line">  vm._c = <span class="function">(<span class="params">a, b, c, d</span>) =&gt;</span> createElement(vm, a, b, c, d, <span class="literal">false</span>)</span><br><span class="line">  <span class="comment">// 标准化createElement方法，用来对外公开，被使用在用户自己写的render方法中</span></span><br><span class="line">  vm.$createElement = <span class="function">(<span class="params">a, b, c, d</span>) =&gt;</span> createElement(vm, a, b, c, d, <span class="literal">true</span>)</span><br><span class="line">  <span class="comment">// $attr和 $listeners被暴露出来用于更加方便的高阶组件创建，他们需要被加入响应式，以便与高阶组件使用他们总是被更新</span></span><br><span class="line">  <span class="keyword">const</span> parentData = parentVnode &amp;&amp; parentVnode.data</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设定$attrs和$listeners</span></span><br><span class="line">  <span class="comment">/* istanbul ignore else */</span></span><br><span class="line">  <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">    defineReactive(vm, <span class="string">'$attrs'</span>, parentData &amp;&amp; parentData.attrs || emptyObject, () =&gt; &#123;</span><br><span class="line">      !isUpdatingChildComponent &amp;&amp; warn(<span class="string">`$attrs is readonly.`</span>, vm)</span><br><span class="line">    &#125;, <span class="literal">true</span>)</span><br><span class="line">    defineReactive(vm, <span class="string">'$listeners'</span>, options._parentListeners || emptyObject, () =&gt; &#123;</span><br><span class="line">      !isUpdatingChildComponent &amp;&amp; warn(<span class="string">`$listeners is readonly.`</span>, vm)</span><br><span class="line">    &#125;, <span class="literal">true</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    defineReactive(vm, <span class="string">'$attrs'</span>, parentData &amp;&amp; parentData.attrs || emptyObject, <span class="literal">null</span>, <span class="literal">true</span>)</span><br><span class="line">    defineReactive(vm, <span class="string">'$listeners'</span>, options._parentListeners || emptyObject, <span class="literal">null</span>, <span class="literal">true</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后触发beforeCreate生命周期</p>
+<h4 id="initInjections"><a href="#initInjections" class="headerlink" title="initInjections"></a>initInjections</h4><p>初始化inject</p>
+<h4 id="initState"><a href="#initState" class="headerlink" title="initState"></a>initState</h4><p>初始化data，绑定watcher,并且初始化props，methods，data，以及computed属性，以及watch属性，如果存在data就调用initData，进行初始化，否则就observe一个空data</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initState</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  vm._watchers = []</span><br><span class="line">  <span class="keyword">const</span> opts = vm.$options</span><br><span class="line">  <span class="comment">// ininitMethods: 初始化props</span></span><br><span class="line">  <span class="keyword">if</span> (opts.props) initProps(vm, opts.props)</span><br><span class="line">  <span class="comment">// ininitMethods: 初始化methods</span></span><br><span class="line">  <span class="keyword">if</span> (opts.methods) initMethods(vm, opts.methods)</span><br><span class="line">  <span class="comment">// ininitData: 初始化Data</span></span><br><span class="line">  <span class="keyword">if</span> (opts.data) &#123;</span><br><span class="line">    initData(vm)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    observe(vm._data = &#123;&#125;, <span class="literal">true</span> <span class="comment">/* asRootData */</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// initComputed: 计算属性</span></span><br><span class="line">  <span class="keyword">if</span> (opts.computed) initComputed(vm, opts.computed)</span><br><span class="line">  <span class="comment">// inWatch: Watch属性初始化</span></span><br><span class="line">  <span class="keyword">if</span> (opts.watch &amp;&amp; opts.watch !== nativeWatch) &#123;</span><br><span class="line">    initWatch(vm, opts.watch)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="initProps"><a href="#initProps" class="headerlink" title="initProps"></a>initProps</h5><p>将props属性纳入到响应式属性，并且将props属性代理到vm的_props属性中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">defineReactive(props, key, value, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (!isRoot &amp;&amp; !isUpdatingChildComponent) &#123;</span><br><span class="line">    warn(</span><br><span class="line">      <span class="string">`Avoid mutating a prop directly since the value will be `</span> +</span><br><span class="line">      <span class="string">`overwritten whenever the parent component re-renders. `</span> +</span><br><span class="line">      <span class="string">`Instead, use a data or computed property based on the prop's `</span> +</span><br><span class="line">      <span class="string">`value. Prop being mutated: "<span class="subst">$&#123;key&#125;</span>"`</span>,</span><br><span class="line">      vm</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!(key <span class="keyword">in</span> vm)) &#123;</span><br><span class="line">  proxy(vm, <span class="string">`_props`</span>, key)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="initMethods"><a href="#initMethods" class="headerlink" title="initMethods"></a>initMethods</h5><p>initMethods首先检测是否重名，然后设定bind，给methods方法绑定this</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm[key] = <span class="keyword">typeof</span> methods[key] !== <span class="string">'function'</span> ? noop : bind(methods[key], vm)</span><br></pre></td></tr></table></figure>
+
+<h5 id="initData"><a href="#initData" class="headerlink" title="initData"></a>initData</h5><p>主要干了几件事<br>1 获取data对应的strats中的策略方法<br>2 根据策略获取对应的data<br>3 获取props以及methods，然后判定是否存在重复，然后data属性进行代理到vm的_data中<br>4 将data属性进行响应式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initData</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> data = vm.$options.data</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'此处的data获取到根据内部策略合并之后的data方法'</span>, data)</span><br><span class="line">  data = vm._data = <span class="keyword">typeof</span> data === <span class="string">'function'</span></span><br><span class="line">    ? getData(data, vm)</span><br><span class="line">    : data || &#123;&#125;</span><br><span class="line">  </span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(data)</span><br><span class="line">  <span class="keyword">const</span> props = vm.$options.props</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">const</span> methods = vm.$options.methods</span><br><span class="line">  <span class="keyword">let</span> i = keys.length</span><br><span class="line">  <span class="keyword">debugger</span></span><br><span class="line">  <span class="keyword">while</span> (i--) &#123;</span><br><span class="line">    <span class="keyword">const</span> key = keys[i]</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (methods &amp;&amp; hasOwn(methods, key)) &#123;</span><br><span class="line">        warn(</span><br><span class="line">          <span class="string">`Method "<span class="subst">$&#123;key&#125;</span>" has already been defined as a data property.`</span>,</span><br><span class="line">          vm</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (props &amp;&amp; hasOwn(props, key)) &#123;</span><br><span class="line">      process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(</span><br><span class="line">        <span class="string">`The data property "<span class="subst">$&#123;key&#125;</span>" is already declared as a prop. `</span> +</span><br><span class="line">        <span class="string">`Use prop default value instead.`</span>,</span><br><span class="line">        vm</span><br><span class="line">      )</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!isReserved(key)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'initData: 设置data代理到vm._data'</span>)</span><br><span class="line">      proxy(vm, <span class="string">`_data`</span>, key)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// observe data</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'initData: observe(data)，纳入响应式'</span>)</span><br><span class="line">  observe(data, <span class="literal">true</span> <span class="comment">/* asRootData */</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>tips: Vue会将prop以及watch中的属性合并到data中 ？ // 需要确定</p>
+<h5 id="initComputed"><a href="#initComputed" class="headerlink" title="initComputed"></a>initComputed</h5><p>设置computed，并且为每个computed属性绑定一个watcher对象，然后对computed属性进行响应式，defineComputed中会利用缓存</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initComputed</span> (<span class="params">vm: Component, computed: Object</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// $flow-disable-line</span></span><br><span class="line">  <span class="keyword">const</span> watchers = vm._computedWatchers = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line">  <span class="comment">// computed properties are just getters during SSR</span></span><br><span class="line">  <span class="keyword">const</span> isSSR = isServerRendering()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> computed) &#123;</span><br><span class="line">    <span class="keyword">const</span> userDef = computed[key]</span><br><span class="line">    <span class="keyword">const</span> getter = <span class="keyword">typeof</span> userDef === <span class="string">'function'</span> ? userDef : userDef.get</span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; getter == <span class="literal">null</span>) &#123;</span><br><span class="line">      warn(</span><br><span class="line">        <span class="string">`Getter is missing for computed property "<span class="subst">$&#123;key&#125;</span>".`</span>,</span><br><span class="line">        vm</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!isSSR) &#123;</span><br><span class="line">      <span class="comment">// create internal watcher for the computed property.</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'为每个计算属性创建一个Watcher'</span>)</span><br><span class="line">      watchers[key] = <span class="keyword">new</span> Watcher(</span><br><span class="line">        vm,</span><br><span class="line">        getter || noop,</span><br><span class="line">        noop,</span><br><span class="line">        computedWatcherOptions</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// component-defined computed properties are already defined on the</span></span><br><span class="line">    <span class="comment">// component prototype. We only need to define computed properties defined</span></span><br><span class="line">    <span class="comment">// at instantiation here.</span></span><br><span class="line">    <span class="keyword">if</span> (!(key <span class="keyword">in</span> vm)) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'computed:'</span>, key)</span><br><span class="line">      defineComputed(vm, key, userDef)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (key <span class="keyword">in</span> vm.$data) &#123;</span><br><span class="line">        warn(<span class="string">`The computed property "<span class="subst">$&#123;key&#125;</span>" is already defined in data.`</span>, vm)</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (vm.$options.props &amp;&amp; key <span class="keyword">in</span> vm.$options.props) &#123;</span><br><span class="line">        warn(<span class="string">`The computed property "<span class="subst">$&#123;key&#125;</span>" is already defined as a prop.`</span>, vm)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="initWatch"><a href="#initWatch" class="headerlink" title="initWatch"></a>initWatch</h5><p>调用vm.$watch对watche属性进行监控，而在$watch 方法会在stateMixin初始化中进行赋值，具体就是会对传入的属性都创建一个Watcher对象进行监控，，并且还会对immediate属性进行判定。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">initWatch</span> (<span class="params">vm: Component, watch: Object</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'initWatch: Watch初始化'</span>)</span><br><span class="line">  <span class="comment">// 每个对象创建一个watcher</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> watch) &#123;</span><br><span class="line">    <span class="keyword">const</span> handler = watch[key]</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Array</span>.isArray(handler)) &#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; handler.length; i++) &#123;</span><br><span class="line">        createWatcher(vm, key, handler[i])</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      createWatcher(vm, key, handler)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createWatcher</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  vm: Component,</span></span></span><br><span class="line"><span class="function"><span class="params">  expOrFn: string | Function,</span></span></span><br><span class="line"><span class="function"><span class="params">  handler: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  options?: Object</span></span></span><br><span class="line"><span class="function"><span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (isPlainObject(handler)) &#123;</span><br><span class="line">    options = handler</span><br><span class="line">    handler = handler.handler</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> handler === <span class="string">'string'</span>) &#123;</span><br><span class="line">    handler = vm[handler]</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'createWatcher: 调用$watch方法，监控属性'</span>)</span><br><span class="line">  <span class="keyword">return</span> vm.$watch(expOrFn, handler, options)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="initProvide"><a href="#initProvide" class="headerlink" title="initProvide"></a>initProvide</h4><p>判定是否存在provide, 然后进行赋值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">initProvide</span> (<span class="params">vm: Component</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> provide = vm.$options.provide</span><br><span class="line">  <span class="keyword">if</span> (provide) &#123;</span><br><span class="line">    vm._provided = <span class="keyword">typeof</span> provide === <span class="string">'function'</span></span><br><span class="line">      ? provide.call(vm)</span><br><span class="line">      : provide</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="vm-mount"><a href="#vm-mount" class="headerlink" title="vm.$mount"></a>vm.$mount</h4><p>加载组件</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/18/vue/vue-index/" rel="next" title="Vue-初始化">
+                <i class="fa fa-chevron-left"></i> Vue-初始化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Kevin">
+            
+              <p class="site-author-name" itemprop="name">Kevin</p>
+              <p class="site-description motion-element" itemprop="description">因上努力</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#resolveConstructorOptions"><span class="nav-number">1.</span> <span class="nav-text">resolveConstructorOptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mergeOptions"><span class="nav-number">2.</span> <span class="nav-text">mergeOptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#strats"><span class="nav-number">3.</span> <span class="nav-text">strats</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initProxy"><span class="nav-number">4.</span> <span class="nav-text">initProxy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initLifecycle"><span class="nav-number">5.</span> <span class="nav-text">initLifecycle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initEvents"><span class="nav-number">6.</span> <span class="nav-text">initEvents</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initRender"><span class="nav-number">7.</span> <span class="nav-text">initRender</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initInjections"><span class="nav-number">8.</span> <span class="nav-text">initInjections</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initState"><span class="nav-number">9.</span> <span class="nav-text">initState</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#initProps"><span class="nav-number">9.1.</span> <span class="nav-text">initProps</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#initMethods"><span class="nav-number">9.2.</span> <span class="nav-text">initMethods</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#initData"><span class="nav-number">9.3.</span> <span class="nav-text">initData</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#initComputed"><span class="nav-number">9.4.</span> <span class="nav-text">initComputed</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#initWatch"><span class="nav-number">9.5.</span> <span class="nav-text">initWatch</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#initProvide"><span class="nav-number">10.</span> <span class="nav-text">initProvide</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vm-mount"><span class="nav-number">11.</span> <span class="nav-text">vm.$mount</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
