@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="mount挂载过程1234567Vue.prototype._init = function (options?: Object) &amp;#123;  const vm: Component = this  ....  if (vm.$options.el) &amp;#123;    vm.$mount(vm.$options.el)  &amp;#125;&amp;#125;  运行时版本中存在两个$mount方法，Vu">
+<meta name="keywords" content="前端, javaScript, github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-mount">
+<meta property="og:url" content="http://yoursite.com/2019/08/18/vue/vue-mount/index.html">
+<meta property="og:site_name" content="前端笔记">
+<meta property="og:description" content="mount挂载过程1234567Vue.prototype._init = function (options?: Object) &amp;#123;  const vm: Component = this  ....  if (vm.$options.el) &amp;#123;    vm.$mount(vm.$options.el)  &amp;#125;&amp;#125;  运行时版本中存在两个$mount方法，Vu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-19T02:12:20.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue-mount">
+<meta name="twitter:description" content="mount挂载过程1234567Vue.prototype._init = function (options?: Object) &amp;#123;  const vm: Component = this  ....  if (vm.$options.el) &amp;#123;    vm.$mount(vm.$options.el)  &amp;#125;&amp;#125;  运行时版本中存在两个$mount方法，Vu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/18/vue/vue-mount/">
+
+
+
+
+
+  <title>Vue-mount | 前端笔记</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端笔记</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">站在巨人的肩膀上</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/vue/vue-mount/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kevin">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Vue-mount</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T14:27:46+08:00">
+                2019-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="mount挂载过程"><a href="#mount挂载过程" class="headerlink" title="mount挂载过程"></a>mount挂载过程</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.prototype._init = <span class="function"><span class="keyword">function</span> (<span class="params">options?: Object</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> vm: Component = <span class="keyword">this</span></span><br><span class="line">  ....</span><br><span class="line">  <span class="keyword">if</span> (vm.$options.el) &#123;</span><br><span class="line">    vm.$mount(vm.$options.el)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行时版本中存在两个$mount方法，Vue内部首先会将公开版本赋值给mount变量，然后重写$mount方法，并在该方法中进行调用mount方法，mount方法主要调用mountComponent方法，用于加载组件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// public mount method</span></span><br><span class="line">Vue.prototype.$mount = <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  el?: string | Element,</span></span></span><br><span class="line"><span class="function"><span class="params">  hydrating?: boolean</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'invoke mountComponent'</span>)</span><br><span class="line">  el = el &amp;&amp; inBrowser ? query(el) : <span class="literal">undefined</span></span><br><span class="line">  <span class="keyword">return</span> mountComponent(<span class="keyword">this</span>, el, hydrating)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mount = Vue.prototype.$mount</span><br><span class="line"></span><br><span class="line">Vue.prototype.$mount = <span class="function"><span class="keyword">function</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  el?: string | Element,</span></span></span><br><span class="line"><span class="function"><span class="params">  hydrating?: boolean</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'$mount: 加载组件'</span>)</span><br><span class="line">  el = el &amp;&amp; query(el) <span class="comment">// 查询el,如果不存在就创建一个div</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">  <span class="keyword">if</span> (el === <span class="built_in">document</span>.body || el === <span class="built_in">document</span>.documentElement) &#123;</span><br><span class="line">    process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; warn(</span><br><span class="line">      <span class="string">`Do not mount Vue to &lt;html&gt; or &lt;body&gt; - mount to normal elements instead.`</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> options = <span class="keyword">this</span>.$options</span><br><span class="line">  <span class="comment">// resolve template/el and convert to render function</span></span><br><span class="line">  <span class="keyword">if</span> (!options.render) &#123;</span><br><span class="line">    <span class="keyword">let</span> template = options.template</span><br><span class="line">    <span class="keyword">if</span> (template) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> template === <span class="string">'string'</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (template.charAt(<span class="number">0</span>) === <span class="string">'#'</span>) &#123;</span><br><span class="line">          template = idToTemplate(template)</span><br><span class="line">          <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">          <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; !template) &#123;</span><br><span class="line">            warn(</span><br><span class="line">              <span class="string">`Template element not found or is empty: <span class="subst">$&#123;options.template&#125;</span>`</span>,</span><br><span class="line">              <span class="keyword">this</span></span><br><span class="line">            )</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (template.nodeType) &#123;</span><br><span class="line">        template = template.innerHTML</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">          warn(<span class="string">'invalid template option:'</span> + template, <span class="keyword">this</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (el) &#123;</span><br><span class="line">      template = getOuterHTML(el)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (template) &#123;</span><br><span class="line">      <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">      <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">        mark(<span class="string">'compile'</span>)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> &#123; render, staticRenderFns &#125; = compileToFunctions(template, &#123;</span><br><span class="line">        outputSourceRange: process.env.NODE_ENV !== <span class="string">'production'</span>,</span><br><span class="line">        shouldDecodeNewlines,</span><br><span class="line">        shouldDecodeNewlinesForHref,</span><br><span class="line">        delimiters: options.delimiters,</span><br><span class="line">        comments: options.comments</span><br><span class="line">      &#125;, <span class="keyword">this</span>)</span><br><span class="line">      options.render = render</span><br><span class="line">      options.staticRenderFns = staticRenderFns</span><br><span class="line"></span><br><span class="line">      <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">      <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; config.performance &amp;&amp; mark) &#123;</span><br><span class="line">        mark(<span class="string">'compile end'</span>)</span><br><span class="line">        measure(<span class="string">`vue <span class="subst">$&#123;<span class="keyword">this</span>._name&#125;</span> compile`</span>, <span class="string">'compile'</span>, <span class="string">'compile end'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> mount.call(<span class="keyword">this</span>, el, hydrating)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createFunction</span> (<span class="params">code, errors</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Function</span>(code)</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    errors.push(&#123; err, code &#125;)</span><br><span class="line">    <span class="keyword">return</span> noop</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createCompileToFunctionFn</span> (<span class="params">compile: Function</span>): <span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cache = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">compileToFunctions</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">    template: string,</span></span></span><br><span class="line"><span class="function"><span class="params">    options?: CompilerOptions,</span></span></span><br><span class="line"><span class="function"><span class="params">    vm?: Component</span></span></span><br><span class="line"><span class="function"><span class="params">  </span>): <span class="title">CompiledFunctionResult</span> </span>&#123;</span><br><span class="line">    options = extend(&#123;&#125;, options)</span><br><span class="line">    <span class="keyword">const</span> warn = options.warn || baseWarn</span><br><span class="line">    <span class="keyword">delete</span> options.warn</span><br><span class="line"></span><br><span class="line">    <span class="comment">// check cache</span></span><br><span class="line">    <span class="keyword">const</span> key = options.delimiters</span><br><span class="line">      ? <span class="built_in">String</span>(options.delimiters) + template</span><br><span class="line">      : template</span><br><span class="line">    <span class="keyword">if</span> (cache[key]) &#123;</span><br><span class="line">      <span class="keyword">return</span> cache[key]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// compile</span></span><br><span class="line">    <span class="keyword">const</span> compiled = compile(template, options)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// check compilation errors/tips</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (compiled.errors &amp;&amp; compiled.errors.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (options.outputSourceRange) &#123;</span><br><span class="line">          compiled.errors.forEach(<span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">            warn(</span><br><span class="line">              <span class="string">`Error compiling template:\n\n<span class="subst">$&#123;e.msg&#125;</span>\n\n`</span> +</span><br><span class="line">              generateCodeFrame(template, e.start, e.end),</span><br><span class="line">              vm</span><br><span class="line">            )</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          warn(</span><br><span class="line">            <span class="string">`Error compiling template:\n\n<span class="subst">$&#123;template&#125;</span>\n\n`</span> +</span><br><span class="line">            compiled.errors.map(<span class="function"><span class="params">e</span> =&gt;</span> <span class="string">`- <span class="subst">$&#123;e&#125;</span>`</span>).join(<span class="string">'\n'</span>) + <span class="string">'\n'</span>,</span><br><span class="line">            vm</span><br><span class="line">          )</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (compiled.tips &amp;&amp; compiled.tips.length) &#123;</span><br><span class="line">        <span class="keyword">if</span> (options.outputSourceRange) &#123;</span><br><span class="line">          compiled.tips.forEach(<span class="function"><span class="params">e</span> =&gt;</span> tip(e.msg, vm))</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          compiled.tips.forEach(<span class="function"><span class="params">msg</span> =&gt;</span> tip(msg, vm))</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// turn code into functions</span></span><br><span class="line">    <span class="keyword">const</span> res = &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> fnGenErrors = []</span><br><span class="line">    res.render = createFunction(compiled.render, fnGenErrors)</span><br><span class="line">    res.staticRenderFns = compiled.staticRenderFns.map(<span class="function"><span class="params">code</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> createFunction(code, fnGenErrors)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// check function generation errors.</span></span><br><span class="line">    <span class="comment">// this should only happen if there is a bug in the compiler itself.</span></span><br><span class="line">    <span class="comment">// mostly for codegen development use</span></span><br><span class="line">    <span class="comment">/* istanbul ignore if */</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> ((!compiled.errors || !compiled.errors.length) &amp;&amp; fnGenErrors.length) &#123;</span><br><span class="line">        warn(</span><br><span class="line">          <span class="string">`Failed to generate render function:\n\n`</span> +</span><br><span class="line">          fnGenErrors.map(<span class="function">(<span class="params">&#123; err, code &#125;</span>) =&gt;</span> <span class="string">`<span class="subst">$&#123;err.toString()&#125;</span> in\n\n<span class="subst">$&#123;code&#125;</span>\n`</span>).join(<span class="string">'\n'</span>),</span><br><span class="line">          vm</span><br><span class="line">        )</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (cache[key] = res)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createCompilerCreator</span> (<span class="params">baseCompile: Function</span>): <span class="title">Function</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'创建compilerCreator'</span>)</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">createCompiler</span> (<span class="params">baseOptions: CompilerOptions</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">compile</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">      template: string,</span></span></span><br><span class="line"><span class="function"><span class="params">      options?: CompilerOptions</span></span></span><br><span class="line"><span class="function"><span class="params">    </span>): <span class="title">CompiledResult</span> </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> finalOptions = <span class="built_in">Object</span>.create(baseOptions)</span><br><span class="line">      <span class="keyword">const</span> errors = []</span><br><span class="line">      <span class="keyword">const</span> tips = []</span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> warn = <span class="function">(<span class="params">msg, range, tip</span>) =&gt;</span> &#123;</span><br><span class="line">        (tip ? tips : errors).push(msg)</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (options) &#123;</span><br><span class="line">        <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span> &amp;&amp; options.outputSourceRange) &#123;</span><br><span class="line">          <span class="comment">// $flow-disable-line</span></span><br><span class="line">          <span class="keyword">const</span> leadingSpaceLength = template.match(<span class="regexp">/^\s*/</span>)[<span class="number">0</span>].length</span><br><span class="line"></span><br><span class="line">          warn = <span class="function">(<span class="params">msg, range, tip</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> data: WarningMessage = &#123; msg &#125;</span><br><span class="line">            <span class="keyword">if</span> (range) &#123;</span><br><span class="line">              <span class="keyword">if</span> (range.start != <span class="literal">null</span>) &#123;</span><br><span class="line">                data.start = range.start + leadingSpaceLength</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> (range.end != <span class="literal">null</span>) &#123;</span><br><span class="line">                data.end = range.end + leadingSpaceLength</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            (tip ? tips : errors).push(data)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// merge custom modules</span></span><br><span class="line">        <span class="keyword">if</span> (options.modules) &#123;</span><br><span class="line">          finalOptions.modules =</span><br><span class="line">            (baseOptions.modules || []).concat(options.modules)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// merge custom directives</span></span><br><span class="line">        <span class="keyword">if</span> (options.directives) &#123;</span><br><span class="line">          finalOptions.directives = extend(</span><br><span class="line">            <span class="built_in">Object</span>.create(baseOptions.directives || <span class="literal">null</span>),</span><br><span class="line">            options.directives</span><br><span class="line">          )</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// copy other options</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> options) &#123;</span><br><span class="line">          <span class="keyword">if</span> (key !== <span class="string">'modules'</span> &amp;&amp; key !== <span class="string">'directives'</span>) &#123;</span><br><span class="line">            finalOptions[key] = options[key]</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      finalOptions.warn = warn</span><br><span class="line"></span><br><span class="line">      <span class="keyword">const</span> compiled = baseCompile(template.trim(), finalOptions)</span><br><span class="line">      <span class="keyword">if</span> (process.env.NODE_ENV !== <span class="string">'production'</span>) &#123;</span><br><span class="line">        detectErrors(compiled.ast, warn)</span><br><span class="line">      &#125;</span><br><span class="line">      compiled.errors = errors</span><br><span class="line">      compiled.tips = tips </span><br><span class="line">      <span class="keyword">return</span> compiled</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      compile,</span><br><span class="line">      compileToFunctions: createCompileToFunctionFn(compile)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> createCompiler = createCompilerCreator(<span class="function"><span class="keyword">function</span> <span class="title">baseCompile</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  template: string,</span></span></span><br><span class="line"><span class="function"><span class="params">  options: CompilerOptions</span></span></span><br><span class="line"><span class="function"><span class="params"></span>): <span class="title">CompiledResult</span> </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'解析template, 生成ast语法树'</span>)</span><br><span class="line">  <span class="keyword">const</span> ast = parse(template.trim(), options)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'对语法树进行优化'</span>)</span><br><span class="line">  <span class="keyword">if</span> (options.optimize !== <span class="literal">false</span>) &#123;</span><br><span class="line">    optimize(ast, options)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'生成render方法'</span>)</span><br><span class="line">  <span class="keyword">const</span> code = generate(ast, options)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ast,</span><br><span class="line">    render: code.render,</span><br><span class="line">    staticRenderFns: code.staticRenderFns</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> &#123; compile, compileToFunctions &#125; = createCompiler(baseOptions)</span><br><span class="line"></span><br><span class="line">compileToFunctions(template, &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>有一点像插槽的感觉，后面如果要替换编译方案，直接修改createCompilerCreator就可以了，而内部的代码基本不需要改变。<br>先编写好内部的代码，留出一个插槽，随时可以替换。<br>有个两参数需要被设置，所以利用柯里化，则需要调用两次。此处利用了自执行方案，两次设定预定的基本参数，包括baseOption和baseCompile。<br>而对于在baseCompiler包裹之后的complier方法，又利用了 createCompileToFunctionFn 在进行包裹一层，对于compiler出来的内容，利用new Function 转换成function代码。这里有一点像装饰模式。<br>那么为什么不直接一次就搞定,要分两次去设置baseOption和baseCompile？<br>1 baseOption是一定不会有改变的，而baseCompile是后面可能被调整的，他们两个是没有必要被耦合在一起。<br>2 分开设置可以降低耦合性。<br>3 compile 会被传递到后面的函数进一步进行处理，而baseOption只是被设置一次就可以<br>4 如果要放在一起的话，那么其实也可以直接放到一个对象中就可以了，这应该是关于纯函数的划分问题。<br>5 另外baseOption会被用到，需要和用户填入的option进行合并，而baseCompiler则是只需要存储一份就好了，保存在闭包中即可。后面需要用到编译，那么都可以用同一个baseCompile的包装function</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/18/vue/vue-observe/" rel="next" title="Vue-observe">
+                <i class="fa fa-chevron-left"></i> Vue-observe
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Kevin">
+            
+              <p class="site-author-name" itemprop="name">Kevin</p>
+              <p class="site-description motion-element" itemprop="description">因上努力</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mount挂载过程"><span class="nav-number">1.</span> <span class="nav-text">mount挂载过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kevin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

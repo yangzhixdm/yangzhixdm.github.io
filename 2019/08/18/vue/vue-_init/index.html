@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-init">
 <meta property="og:url" content="http://yoursite.com/2019/08/18/vue/vue-_init/index.html">
-<meta property="og:site_name" content="何必云梯">
+<meta property="og:site_name" content="前端笔记">
 <meta property="og:description" content="resolveConstructorOptions123456789101112if (options &amp;amp;&amp;amp; options._isComponent) &amp;#123;  // optimize internal component instantiation  // since dynamic options merging is pretty slow, and none of">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-18T04:50:08.647Z">
+<meta property="og:updated_time" content="2019-08-18T06:14:15.144Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue-init">
 <meta name="twitter:description" content="resolveConstructorOptions123456789101112if (options &amp;amp;&amp;amp; options._isComponent) &amp;#123;  // optimize internal component instantiation  // since dynamic options merging is pretty slow, and none of">
@@ -126,7 +126,7 @@
 
 
 
-  <title>Vue-init | 何必云梯</title>
+  <title>Vue-init | 前端笔记</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">何必云梯</span>
+        <span class="site-title">前端笔记</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -242,7 +242,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="何必云梯">
+      <meta itemprop="name" content="前端笔记">
     </span>
 
     
@@ -262,7 +262,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T12:58:30+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T12:08:30+08:00">
                 2019-08-18
               </time>
             
@@ -301,6 +301,9 @@
 
       
         <h4 id="resolveConstructorOptions"><a href="#resolveConstructorOptions" class="headerlink" title="resolveConstructorOptions"></a>resolveConstructorOptions</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (options &amp;&amp; options._isComponent) &#123;</span><br><span class="line">  <span class="comment">// optimize internal component instantiation</span></span><br><span class="line">  <span class="comment">// since dynamic options merging is pretty slow, and none of the</span></span><br><span class="line">  <span class="comment">// internal component options needs special treatment.</span></span><br><span class="line">  initInternalComponent(vm, options)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  vm.$options = mergeOptions(</span><br><span class="line">    resolveConstructorOptions(vm.constructor),</span><br><span class="line">    options || &#123;&#125;,</span><br><span class="line">    vm</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取Ctor中默认的options属性，components, directives, filters, _base(Vue)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">resolveConstructorOptions</span> (<span class="params">Ctor: Class&lt;Component&gt;</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'处理(resolve)构造器的options,构造器默认自带的options属性'</span>)</span><br><span class="line">  <span class="keyword">let</span> options = Ctor.options  <span class="comment">// 默认的options </span></span><br><span class="line">  <span class="keyword">if</span> (Ctor.super) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Ctor存在super'</span>)</span><br><span class="line">    <span class="keyword">const</span> superOptions = resolveConstructorOptions(Ctor.super)</span><br><span class="line">    <span class="keyword">const</span> cachedSuperOptions = Ctor.superOptions</span><br><span class="line">    <span class="keyword">if</span> (superOptions !== cachedSuperOptions) &#123;</span><br><span class="line">      <span class="comment">// super option changed,</span></span><br><span class="line">      <span class="comment">// need to resolve new options.</span></span><br><span class="line">      Ctor.superOptions = superOptions</span><br><span class="line">      <span class="comment">// check if there are any late-modified/attached options (#4976)</span></span><br><span class="line">      <span class="keyword">const</span> modifiedOptions = resolveModifiedOptions(Ctor)</span><br><span class="line">      <span class="comment">// update base extend options</span></span><br><span class="line">      <span class="keyword">if</span> (modifiedOptions) &#123;</span><br><span class="line">        extend(Ctor.extendOptions, modifiedOptions)</span><br><span class="line">      &#125;</span><br><span class="line">      options = Ctor.options = mergeOptions(superOptions, Ctor.extendOptions)</span><br><span class="line">      <span class="keyword">if</span> (options.name) &#123;</span><br><span class="line">        options.components[options.name] = Ctor</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> options</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>mergeOptions,首先调用resolveConstructorOptions,处理构造方法options<br>将Vue默认构造器的options,赋值给当前的options属性，并且判定super属性</p>
 <h4 id="mergeOptions"><a href="#mergeOptions" class="headerlink" title="mergeOptions"></a>mergeOptions</h4><p>合并options，并且本地化（normalize) props,inject,directives</p>
@@ -389,6 +392,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/08/18/vue/vue-watcher/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -466,7 +473,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -523,7 +530,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
