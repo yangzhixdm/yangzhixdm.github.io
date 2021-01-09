@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Vue 入口Vue的源码使用flow开发，使用rollup进行构建。这里使用开发版本，查看package.json 1&quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev --sourcemap&quot;,  target为web-full-dev，查看scripts/config.js中配置： 12345678&apos;">
+<meta name="description" content="Vue 初始化过程。">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue-初始化">
 <meta property="og:url" content="http://yoursite.com/2019/08/18/vue/vue-index/index.html">
 <meta property="og:site_name" content="小二，上酒">
-<meta property="og:description" content="Vue 入口Vue的源码使用flow开发，使用rollup进行构建。这里使用开发版本，查看package.json 1&quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev --sourcemap&quot;,  target为web-full-dev，查看scripts/config.js中配置： 12345678&apos;">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-09T06:27:41.335Z">
+<meta property="og:description" content="Vue 初始化过程。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-01-09T09:29:12.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue-初始化">
-<meta name="twitter:description" content="Vue 入口Vue的源码使用flow开发，使用rollup进行构建。这里使用开发版本，查看package.json 1&quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev --sourcemap&quot;,  target为web-full-dev，查看scripts/config.js中配置： 12345678&apos;">
+<meta name="twitter:description" content="Vue 初始化过程。">
 
 
 
@@ -106,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">站在巨人的肩膀上</p>
+        <p class="site-subtitle">心有猛虎，细嗅蔷薇</p>
       
   </div>
 
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            首页
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -236,9 +236,9 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/vue/vue-index/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kevin">
+      <meta itemprop="name" content="幽梦">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -260,9 +260,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-18T10:58:27+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-18T10:58:27+08:00">
                 2019-08-18
               </time>
             
@@ -285,6 +285,10 @@
 
           
 
+          
+              <div class="post-description">
+                  Vue 初始化过程。
+              </div>
           
 
         </div>
@@ -362,7 +366,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/03/vue-source-reading/" rel="next" title="vue源码阅读">
+              <a href="/2019/08/03/vue/vue-source-reading/" rel="next" title="vue源码阅读">
                 <i class="fa fa-chevron-left"></i> vue源码阅读
               </a>
             
@@ -372,8 +376,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/18/vue/vue-_init/" rel="prev" title="Vue-init">
-                Vue-init <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/18/vue/vue-_init/" rel="prev" title="Vue源码-Vue-init方法的执行过程">
+                Vue源码-Vue-init方法的执行过程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -428,10 +432,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -440,9 +444,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Kevin">
-            
-              <p class="site-author-name" itemprop="name">Kevin</p>
+              <p class="site-author-name" itemprop="name">幽梦</p>
               <p class="site-description motion-element" itemprop="description">来者何人</p>
           </div>
 
@@ -454,7 +456,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">68</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -466,8 +468,8 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -523,13 +525,13 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Kevin</span>
+  <span class="author" itemprop="copyrightHolder">幽梦</span>
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -537,7 +539,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 

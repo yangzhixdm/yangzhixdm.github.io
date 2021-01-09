@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="en">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Vue,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="h vue 源码阅读准备1 下载vue源代码https://github.com/vuejs/vue 2 开始安装依赖 1npm i  3 开启sourcemap模式在package中dev命令下添加 –sourcemap 1&quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev --sourcemap&quot;,">
-<meta name="keywords" content="前端, javaScript, github">
+<meta name="description" content="Vue 源码阅读方式。">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue源码阅读">
-<meta property="og:url" content="http://yoursite.com/2019/08/03/vue-source-reading/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/vue/vue-source-reading/index.html">
 <meta property="og:site_name" content="小二，上酒">
-<meta property="og:description" content="h vue 源码阅读准备1 下载vue源代码https://github.com/vuejs/vue 2 开始安装依赖 1npm i  3 开启sourcemap模式在package中dev命令下添加 –sourcemap 1&quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev --sourcemap&quot;,">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-18T02:52:29.456Z">
+<meta property="og:description" content="Vue 源码阅读方式。">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-01-09T09:30:40.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue源码阅读">
-<meta name="twitter:description" content="h vue 源码阅读准备1 下载vue源代码https://github.com/vuejs/vue 2 开始安装依赖 1npm i  3 开启sourcemap模式在package中dev命令下添加 –sourcemap 1&quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev --sourcemap&quot;,">
+<meta name="twitter:description" content="Vue 源码阅读方式。">
 
 
 
@@ -106,7 +106,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/03/vue-source-reading/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/03/vue/vue-source-reading/">
 
 
 
@@ -138,7 +138,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">站在巨人的肩膀上</p>
+        <p class="site-subtitle">心有猛虎，细嗅蔷薇</p>
       
   </div>
 
@@ -186,7 +186,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            首页
+            Home
           </a>
         </li>
       
@@ -196,7 +196,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -233,12 +233,12 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/vue-source-reading/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/03/vue/vue-source-reading/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kevin">
+      <meta itemprop="name" content="幽梦">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -260,9 +260,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-03T10:57:52+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-03T10:57:52+08:00">
                 2019-08-03
               </time>
             
@@ -286,6 +286,10 @@
           
 
           
+              <div class="post-description">
+                  Vue 源码阅读方式。
+              </div>
+          
 
         </div>
       </header>
@@ -300,8 +304,7 @@
       
 
       
-        <p>h</p>
-<h3 id="vue-源码阅读准备"><a href="#vue-源码阅读准备" class="headerlink" title="vue 源码阅读准备"></a>vue 源码阅读准备</h3><p>1 下载vue源代码<br><a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">https://github.com/vuejs/vue</a></p>
+        <h3 id="vue-源码阅读准备"><a href="#vue-源码阅读准备" class="headerlink" title="vue 源码阅读准备"></a>vue 源码阅读准备</h3><p>1 下载vue源代码<br><a href="https://github.com/vuejs/vue" target="_blank" rel="noopener">https://github.com/vuejs/vue</a></p>
 <p>2 开始安装依赖</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i</span><br></pre></td></tr></table></figure>
 
@@ -329,6 +332,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
+          
+        </div>
       
 
       
@@ -405,10 +414,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -417,9 +426,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Kevin">
-            
-              <p class="site-author-name" itemprop="name">Kevin</p>
+              <p class="site-author-name" itemprop="name">幽梦</p>
               <p class="site-description motion-element" itemprop="description">来者何人</p>
           </div>
 
@@ -431,7 +438,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">68</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -443,8 +450,8 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
                 
               </div>
             
@@ -500,13 +507,13 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Kevin</span>
+  <span class="author" itemprop="copyrightHolder">幽梦</span>
 
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -514,7 +521,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
