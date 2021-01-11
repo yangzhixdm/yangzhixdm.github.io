@@ -303,12 +303,10 @@
 
       
         
-          
-          之前去某公司面试，需要解决一个在线聊天室的消息实时性问题，且需要兼容低版本浏览器。高版本浏览器自然不成问题，那么低版本的浏览器如何处理。最先想到的方案，自然是轮询发ajax请求。在一定的程度上，这个方案可以解决实时性的问题。但是随之带来的问题是，不停的向服务器发请求带来的服务器的压力，且多数时间都是
-          ...
+          关于长轮询的一些理解。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/09/long-poll/#more" rel="contents">
+            <a class="btn" href="/2017/06/09/long-poll/">
               Read more &raquo;
             </a>
           </div>
@@ -429,13 +427,10 @@
 
       
         
-          
-          别人是怎么做首屏优化的？最近对于前端性能方面的优化关注得比较多一点，来一下大公司是做首屏的这是天猫首页，不要滚动页面，直接审查元素看一下。
-发现首页上面有多少个模块(当然天猫对于关键模块是有算法优先支持的)或者说节点，你会发现，没有出现在视区中的元素节点，根本就没有生成节点，而是只是一堆的json数
-          ...
+          目前大厂的首屏是如何进行优化的，这里更多的是离线方案。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/05/19/first-screen-optimize/#more" rel="contents">
+            <a class="btn" href="/2017/05/19/first-screen-optimize/">
               Read more &raquo;
             </a>
           </div>
@@ -556,12 +551,10 @@
 
       
         
-          
-          最近同事在用iscrolljs做app端的滚动。页面中的内容是采用ajax加载出来的，但是在上拉的时候，不知道为什么总是拉不到底部，而查看容器的高度又是正确的。每次加载内容之后，也调用了refresh方法，但是就是拉不到底部。仔细查看之后，发现原来是加载出来的内容当中，包含有图片。而这里每次调用re
-          ...
+          最近同事在用iscrolljs做app端的滚动。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/01/06/iscroll-refresh-problem/#more" rel="contents">
+            <a class="btn" href="/2017/01/06/iscroll-refresh-problem/">
               Read more &raquo;
             </a>
           </div>
@@ -682,12 +675,10 @@
 
       
         
-          
-          1. IOS 表单元素点击自带背景阴影最近一直做移动端前端开发，发现一个神奇的东西，对于IOS下的，input或者label元素，点击之后，总是会出现一个背景阴影的现象。之前一直怀疑是Fastclick这个哥们搞的鬼，最后查了fastclick的源码，fastclick并没有对它进行过处理，最后发现
-          ...
+          移动端存在的一些坑。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/12/08/mobile-input-problem/#more" rel="contents">
+            <a class="btn" href="/2016/12/08/mobile-input-problem/">
               Read more &raquo;
             </a>
           </div>
@@ -808,12 +799,10 @@
 
       
         
-          
-          最近H5 APP开发过程中，遇到各种许多问题，诸如点击无效，checkbox无法选中，点击穿透等问题。一切罪责最终都指向了fastclick，于是决定要翻开其源码see see ，否则一些问题真如盲人摸象一般。其实fastclick的代码还是蛮简单的，不多，就800多行，其中大部分代码都是在做一些H
-          ...
+          最近使用 FastClick 碰到一些问题，于是对FastClick.js源码进行了一些分析。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/25/fast-click-source-code/#more" rel="contents">
+            <a class="btn" href="/2016/11/25/fast-click-source-code/">
               Read more &raquo;
             </a>
           </div>
@@ -934,15 +923,10 @@
 
       
         
-          
-          最近在读 IScroll 源码，发现其中的_initEvent 事件方法有点奇怪。如下：
-
-其中的 utils.addEvent 方法如下：
-这里出现的问题是：之前我们使用addEventListener 绑定事件的时候，第二个参数不都是传入一个function么，为什么这里传入的是一个this ?
-          ...
+          关于addEventListener绑定事件的一些细节，主要针对其中的一些额外参数的理解。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/18/about-event-detail/#more" rel="contents">
+            <a class="btn" href="/2016/11/18/about-event-detail/">
               Read more &raquo;
             </a>
           </div>
@@ -1063,14 +1047,10 @@
 
       
         
-          
-          原问题是：一般浏览器对静态资源的缓存导致的更新不及时问题，我们是怎么处理的？有哪几种方式？为什么会产生这些方式？（其实就是各种方式的优劣）
-之前大家可能都知道 一般的公司对于静态资源以及缓存的处理方式无非就这么几种。1 在静态资源后面加一个版本号 v=1.111类似于上面这种方式。
-2 为了准确的确
-          ...
+          前端工程一直是很重要的一个方面，静态资源缓存的处理方式
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/11/11/front-end-static-source-deploy/#more" rel="contents">
+            <a class="btn" href="/2016/11/11/front-end-static-source-deploy/">
               Read more &raquo;
             </a>
           </div>

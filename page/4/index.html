@@ -303,12 +303,10 @@
 
       
         
-          
-          123456789101112131415161718192021222324252627282930313233343536373839Sizzle.find = function( expr, context, isXML ) &#123;	var set, i, len, match, typ
-          ...
+          jQuery中Sizzle引擎的find的方法分析。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/28/sizzle-find/#more" rel="contents">
+            <a class="btn" href="/2014/08/28/sizzle-find/">
               Read more &raquo;
             </a>
           </div>
@@ -429,12 +427,10 @@
 
       
         
-          
-          123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798
-          ...
+          sizzle入口源码分析
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/28/sizzle-enter/#more" rel="contents">
+            <a class="btn" href="/2014/08/28/sizzle-enter/">
               Read more &raquo;
             </a>
           </div>
@@ -555,12 +551,10 @@
 
       
         
-          
-          123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798
-          ...
+          jQuery源码分析-事件add
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/28/jQ-event-add/#more" rel="contents">
+            <a class="btn" href="/2014/08/28/jQ-event-add/">
               Read more &raquo;
             </a>
           </div>
@@ -681,15 +675,10 @@
 
       
         
-          
-          最近一直在研究Sizzle选择器,对于其中的原理确实不得不佩服!
-Sizzle中的filter方法，主要负责块表达式过滤元素集合，在方法内部会调用Sizzle.selector.fitler方法执行过滤操作。
-Sizzle.filter主要分5个关键步骤：
-1 使用LeftMatch确定表达式类型。
-          ...
+          jQuery中Sizzle引擎的filter的方法分析。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/27/sizzle-filter/#more" rel="contents">
+            <a class="btn" href="/2014/08/27/sizzle-filter/">
               Read more &raquo;
             </a>
           </div>
@@ -810,13 +799,10 @@ Sizzle.filter主要分5个关键步骤：
 
       
         
-          
-          jQuery 的选择器可谓之强大无比，这里简单地总结一下常用的元素查找方法 
-$(“#myELement”)    选择id值等于myElement的元素，id值不能重复在文档中只能有一个id值是myElement所以得到的是唯一的元素$(“div”)           选择所有的div标签元素，
-          ...
+          jQuery的一些操作。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/26/jquery-selector-instance/#more" rel="contents">
+            <a class="btn" href="/2014/08/26/jquery-selector-instance/">
               Read more &raquo;
             </a>
           </div>
@@ -937,13 +923,10 @@ $(“#myELement”)    选择id值等于myElement的元素，id值不能重复�
 
       
         
-          
-          1 jQuery 对象Sizzle.selectors.relative中存放了块间关系符和对应的块间关系过滤函数，称为“块间关系过滤函数集” 块间关系符共有4种，其含义和过滤方式如图所示。
-在函数Sizzle( selector, context, results, seed )从右向左进行过滤时
-          ...
+          jQuery中Sizzle引擎的selectors 分析。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/24/sizzle-selector-relative/#more" rel="contents">
+            <a class="btn" href="/2014/08/24/sizzle-selector-relative/">
               Read more &raquo;
             </a>
           </div>
@@ -1064,13 +1047,10 @@ $(“#myELement”)    选择id值等于myElement的元素，id值不能重复�
 
       
         
-          
-          第一代事件系统Eean wdwrad 大神的addEvent.js.当然最原始的jQuery事件系统也是照抄过来的.
-12345678910111213141516171819202122232425262728293031323334353637383940function addEvent(el
-          ...
+          jQuery缓存系统的前世今生。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/01/jquery-cache/#more" rel="contents">
+            <a class="btn" href="/2014/08/01/jquery-cache/">
               Read more &raquo;
             </a>
           </div>
@@ -1191,15 +1171,10 @@ $(“#myELement”)    选择id值等于myElement的元素，id值不能重复�
 
       
         
-          
-          最近在研究关于javascript类的实现，通过类来实现重用与共享。
-但是很多时候不可能总是一个个的在原型链上做动作，所以作为一个框架，那么需要一个类工厂来做支撑。
-这一点上，jquery就有点迷茫了，prototype.js,mootools,在这一点上似乎做得不错。
-12345678910111
-          ...
+          工厂模式。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/01/javascript-class-facotry/#more" rel="contents">
+            <a class="btn" href="/2014/08/01/javascript-class-facotry/">
               Read more &raquo;
             </a>
           </div>
@@ -1320,16 +1295,10 @@ $(“#myELement”)    选择id值等于myElement的元素，id值不能重复�
 
       
         
-          
-          
-IEContendLoaded.js
-
-它的原理是，在IE下，DOM的某些方法只有在DOM解析完成后才可以调用，doScroll就是这样一个方法，反过来当能调用doScroll的时候即是DOM解析完成之时。在jquery的源码中也能看到如此对IE的特殊处理。
-1234567891011121314
-          ...
+          哈哈哈，IE一直是开发人员的痛。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/01/javascript-ie-domcontentload/#more" rel="contents">
+            <a class="btn" href="/2014/08/01/javascript-ie-domcontentload/">
               Read more &raquo;
             </a>
           </div>
@@ -1450,16 +1419,10 @@ IEContendLoaded.js
 
       
         
-          
-          对于javascript中typeof唯一一个应用，就是用来判断变量是否被定声明，或者初始化。
-123if(typeof val === "undefined")&#123;	//do something&#125;
-
-以下为typeof对不同的类型的变量的值：
-123456789101112131
-          ...
+          关于typeof 小小总结。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/08/01/javascript-typeof/#more" rel="contents">
+            <a class="btn" href="/2014/08/01/javascript-typeof/">
               Read more &raquo;
             </a>
           </div>

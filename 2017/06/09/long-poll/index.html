@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="之前去某公司面试，需要解决一个在线聊天室的消息实时性问题，且需要兼容低版本浏览器。高版本浏览器自然不成问题，那么低版本的浏览器如何处理。最先想到的方案，自然是轮询发ajax请求。在一定的程度上，这个方案可以解决实时性的问题。但是随之带来的问题是，不停的向服务器发请求带来的服务器的压力，且多数时间都是无用请求。后实在没有方案，向面试官请教之，得出一个方案： 长轮询。服务器与客服端需保持一条长时间的请">
+<meta name="description" content="关于长轮询的一些理解。">
 <meta name="keywords" content="前端, javaScript, github">
 <meta property="og:type" content="article">
 <meta property="og:title" content="长轮询(LongPoll)">
 <meta property="og:url" content="http://yoursite.com/2017/06/09/long-poll/index.html">
 <meta property="og:site_name" content="小二，上酒">
-<meta property="og:description" content="之前去某公司面试，需要解决一个在线聊天室的消息实时性问题，且需要兼容低版本浏览器。高版本浏览器自然不成问题，那么低版本的浏览器如何处理。最先想到的方案，自然是轮询发ajax请求。在一定的程度上，这个方案可以解决实时性的问题。但是随之带来的问题是，不停的向服务器发请求带来的服务器的压力，且多数时间都是无用请求。后实在没有方案，向面试官请教之，得出一个方案： 长轮询。服务器与客服端需保持一条长时间的请">
+<meta property="og:description" content="关于长轮询的一些理解。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-06-02T02:23:43.223Z">
+<meta property="og:updated_time" content="2021-01-11T03:40:49.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="长轮询(LongPoll)">
-<meta name="twitter:description" content="之前去某公司面试，需要解决一个在线聊天室的消息实时性问题，且需要兼容低版本浏览器。高版本浏览器自然不成问题，那么低版本的浏览器如何处理。最先想到的方案，自然是轮询发ajax请求。在一定的程度上，这个方案可以解决实时性的问题。但是随之带来的问题是，不停的向服务器发请求带来的服务器的压力，且多数时间都是无用请求。后实在没有方案，向面试官请教之，得出一个方案： 长轮询。服务器与客服端需保持一条长时间的请">
+<meta name="twitter:description" content="关于长轮询的一些理解。">
 
 
 
@@ -285,6 +285,10 @@
 
           
 
+          
+              <div class="post-description">
+                  关于长轮询的一些理解。
+              </div>
           
 
         </div>

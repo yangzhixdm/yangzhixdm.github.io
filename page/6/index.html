@@ -303,17 +303,10 @@
 
       
         
-          
-          在此之前，对于line-height 与垂直居中的问题，经常碰到。 
-比如，图片与span在同一个box中的时候，竟然会各种偏移。要想达到理想的效果真的是各种难。
-有时间，决定认真的啃一啃。
-line-heigth:
-line-height: 顾名思义，行高，指代文本中，行与行之间的基线间的距离。
-
-          ...
+          关于 line-height 的一些基础知识。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/29/css-inline-heigth-vertical-middle/#more" rel="contents">
+            <a class="btn" href="/2014/03/29/css-inline-heigth-vertical-middle/">
               Read more &raquo;
             </a>
           </div>
@@ -434,14 +427,10 @@ line-height: 顾名思义，行高，指代文本中，行与行之间的基线�
 
       
         
-          
-          这几天对于js控制元素在浏览器端的高度问题，
-有点麻烦，于是决定深入学习一番，经过一番努力测试，得如下结果：
-1234567891011121314151617181920212223242526272829303132&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XH
-          ...
+          浏览器屏幕中的各种高度其实挺困扰的。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/28/calculate-width-and-heigth-in-window/#more" rel="contents">
+            <a class="btn" href="/2014/03/28/calculate-width-and-heigth-in-window/">
               Read more &raquo;
             </a>
           </div>
@@ -562,15 +551,10 @@ line-height: 顾名思义，行高，指代文本中，行与行之间的基线�
 
       
         
-          
-          也是久闻AMD大名。但一直没有时间去弄这些东西。
-终于找了一些时间去了解一下：
-关于js的模块设计就不用多说了，自然好处多多，很大程度上去优化结构代码，减少http请求次数，提升性能。
-去网上找来了requireJs的api，感觉不错。http://makingmobile.org/docs/too
-          ...
+          requireJs 学习。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/28/study-requirejs/#more" rel="contents">
+            <a class="btn" href="/2014/03/28/study-requirejs/">
               Read more &raquo;
             </a>
           </div>
@@ -691,13 +675,10 @@ line-height: 顾名思义，行高，指代文本中，行与行之间的基线�
 
       
         
-          
-          曾经一直以为html中的border是直角的，直到有一天：
-12345678910.test&#123;  border: 20px solid;  border-top-color:#ff0000;  border-right-color:#00ff00;  border-bottom-color
-          ...
+          哈哈哈，其实就是css border的一些疑问。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/27/css-border/#more" rel="contents">
+            <a class="btn" href="/2014/03/27/css-border/">
               Read more &raquo;
             </a>
           </div>
@@ -818,18 +799,10 @@ line-height: 顾名思义，行高，指代文本中，行与行之间的基线�
 
       
         
-          
-          1jquery scrollTop() 与offset()!
-
-曾经很长一段时间，很多人问我下面一段代码的好处是什么？
-1234;(function($)&#123;    //do something&#125;)(jQuery);
-
-但我一直就是这么写着，似乎觉得它本来就是这个样子的。
-对说书中
-          ...
+          哈哈哈
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/25/jquery-scrolltop-scrollleft/#more" rel="contents">
+            <a class="btn" href="/2014/03/25/jquery-scrolltop-scrollleft/">
               Read more &raquo;
             </a>
           </div>
@@ -1079,14 +1052,10 @@ line-height: 顾名思义，行高，指代文本中，行与行之间的基线�
 
       
         
-          
-          我记得我曾经说过，一切皆为闭包！
-关于闭包可能很多人第一时间会想起这样一句代码：
-12345678var foo = function()&#123;  var i = 0;  return function()&#123;    console.log(++i);  &#125;&#125;var
-          ...
+          哈哈哈哈，闭包的问题。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/06/all-is-closure/#more" rel="contents">
+            <a class="btn" href="/2014/03/06/all-is-closure/">
               Read more &raquo;
             </a>
           </div>
@@ -1207,15 +1176,10 @@ line-height: 顾名思义，行高，指代文本中，行与行之间的基线�
 
       
         
-          
-          估计很多人都会用到jQuery中的each方法。
-那就来看一看jQuery都干了些什么。
-each找到jquery中的each源码：
-123456789101112131415161718192021222324252627282930313233343536373839each: function
-          ...
+          关于jQuery中的自加载
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/04/js-auto-load/#more" rel="contents">
+            <a class="btn" href="/2014/03/04/js-auto-load/">
               Read more &raquo;
             </a>
           </div>
@@ -1336,16 +1300,10 @@ each找到jquery中的each源码：
 
       
         
-          
           整理一下在近日所学到一些比较杂的东西。
-这个姑且叫做分组判断执行（具体我也不知道怎么叫准确）。1(a || b || c || d || function()&#123;&#125;)()
-
-第一次见到这样的代码，确实有点头疼，不过很好，得一些朋友的解答。
-该代码的具体含义为：第一个()里面会有判断
-          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/03/02/javascript-small-question/#more" rel="contents">
+            <a class="btn" href="/2014/03/02/javascript-small-question/">
               Read more &raquo;
             </a>
           </div>
@@ -1466,20 +1424,10 @@ each找到jquery中的each源码：
 
       
         
-          
-          或许你一直在用javascript中的array的sort.
-或许你一直相信它会给你正确的结果。
-至少我曾经也是这样认为的，直到有一天，我看到了如下的代码 ：
-1[5,10,1].sort();
-
-或许结果有点出人意料。结果如下：
-1[1,10,5]
-
-仔细深究之后，发现原来默认的sort方法并不是
-          ...
+          排序问题。
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/02/20/javascript-sort/#more" rel="contents">
+            <a class="btn" href="/2014/02/20/javascript-sort/">
               Read more &raquo;
             </a>
           </div>
