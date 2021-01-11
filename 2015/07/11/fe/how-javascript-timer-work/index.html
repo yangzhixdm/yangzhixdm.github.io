@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="作为入门者来说，了解JavaScript中timer的工作方式是很重要的。">
+<meta name="keywords" content="前端, javaScript, github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中的定时器(Timer) 是如何工作的!">
+<meta property="og:url" content="http://yoursite.com/2015/07/11/fe/how-javascript-timer-work/index.html">
+<meta property="og:site_name" content="小二，上酒">
+<meta property="og:description" content="作为入门者来说，了解JavaScript中timer的工作方式是很重要的。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/postimg/20150711094408429.png">
+<meta property="og:updated_time" content="2021-01-11T04:00:35.367Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript中的定时器(Timer) 是如何工作的!">
+<meta name="twitter:description" content="作为入门者来说，了解JavaScript中timer的工作方式是很重要的。">
+<meta name="twitter:image" content="http://yoursite.com/postimg/20150711094408429.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/07/11/fe/how-javascript-timer-work/">
+
+
+
+
+
+  <title>JavaScript中的定时器(Timer) 是如何工作的! | 小二，上酒</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小二，上酒</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有猛虎，细嗅蔷薇</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/07/11/fe/how-javascript-timer-work/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="幽梦">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小二，上酒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript中的定时器(Timer) 是如何工作的!</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-07-11T10:42:49+08:00">
+                2015-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  作为入门者来说，了解JavaScript中timer的工作方式是很重要的。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作为入门者来说，了解JavaScript中timer的工作方式是很重要的。通常它们的表现行为并不是那么地直观，而这是因为它们都处在一个单一线程中。让我们先来看一看三个用来创建以及操作timer的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var id = setTimeout(fn, delay);</span><br></pre></td></tr></table></figure>
+
+<p>初始化一个单一的timer，这个timer将会在一定延时后去调用指定的函数。这个函数（setTimeout）将返回一个唯一的ID，我们可以通过这个ID来取消timer。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> id = setInterval(fn, delay);</span><br></pre></td></tr></table></figure>
+
+<p>与setTimeout类似，只不过它会持续地调用指定的函数（每次都有一个延时），直到timer被取消为止。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clearInterval(id);, clearTimeout(id);</span><br></pre></td></tr></table></figure>
+
+<p>接受一个timer的ID（由上述的两个函数返回的），并且停止timer的回调事件。</p>
+<p>要弄明白这个定时器内部是怎么工作的，有一个很重要的概念需要被提出来：</p>
+<p>1 定时器延迟是不准确的(guaranteed).因为所有的javascript 浏览器代码只有一个单线程执行，并且那些异步事件（如鼠标点击事件，和定时器）只会在出现线程空闲的时候去会执行。这有一个图表演示，如下：<br><img src="/postimg/20150711094408429.png" alt></p>
+<p>这里有很多信息在这个图中需要去理解，但是完全理解它之后，你会对javascript中异步机制有一个清楚的认识。这个图是一维的:</p>
+<p>垂直方向我们用毫秒单位来标记这个时间，这个蓝色的方块代表这个正在被执行的javascript代码。例如，这第一个被执行的javascript代码大约花了18毫秒，这个鼠标事件块大约花费了11毫秒，等等。</p>
+<p>由于javascript 引擎永远只会执行一个片段的代码在同一个时间（因为这个单线程机制），那么这时每一个代码块将会阻塞（blocking）别的异步事件的运行。</p>
+<p>这意味着当一个异步事件被调用（例如当一个鼠标点击，一个定时器触发firing,或者一个xmlhttprequest 过程完成），它将会被加入到队里，并延迟执行(至于具体如何被入到队列中，不同的浏览器有不同的实现，我们这里只考虑简单的情况)</p>
+<p>从一开始，在第一个javasript中，有两个定时器被初始化了： 一个10 毫秒的 setTimeout时间和一个10 毫秒的setInterval事件（这里注意，仅仅只是初始化，亦或叫作定义）。</p>
+<p>由于这个定时器开始的时间和位置，导致它们在第一个javascript块完成前就已经真正被调用(这里的调用，并非直接执行，这里需要注意,可以理解为只是准备调用，把该回调方法加入到队列)了。注意，无论怎么样（however），定时器都不会立刻执行(因为线程没有空闲的原因，它没办法直接执行)。相反，这个被延迟的方法会被加入到队列中，在某个可以执行的时刻（线程空闲的时刻）执行。</p>
+<p>另外一点，在第一个javascript块中，我们可以看到还有一个鼠标事件被触发了。这个javascript 回调方法被关联到一个异步事件 (没人知道用户什么时候做这个动作，所以它被认为是异步的)，这个异步事件也不会立刻执行，和上面的定时器一样，也会被加入到队列中。</p>
+<p>在第一个javascript 块执行结束之后，javascript 引擎就会立刻问一个问题： 还有什么在等待被执行的代码么？ 那么这个时间，有一个鼠标事件回调和定时器回调同时在等待。这个浏览器马上挑选一个(从图中看，是鼠标事件回调)立刻执行。这个定时器继续等待，直到下一个可能的时刻。</p>
+<p>注意一点：在这个这个鼠标事件处理函数正在被执行的同时，第一个interval 回调函数也会调用。正如前面提到的定时器一样，它的回调方法会被加入到队列中。然而，注意当这个interval再一次被调用（这个时候这个定时器的回调方法正在被执行），那么这个时候，这个interval 的回调方法将会被删除（drop）。 如果由于主线程需要执行很长时间的代码块，导致你在队列中加入了很多个回调方法，那么当这个主线程结束之后，一连串的回调函数连续执行没有间隔，直到结束。比较好的做法，是暂时让浏览器休息等待一会，让队列中没有Interval回调。</p>
+<p>我们在看到一些情况：在第三个interval 回调方法触发的时候，inteval自身正在执行（这里应该是下在执行第二个interval没有结束）。这里给我们展示了一个重要的信息：</p>
+<p>interval 不会去关心当前的线程现在执行什么，它们会把自己的回调方法加入到队列中在任何情况下，即使它会让两个间隔的回调方法之间的时间减少。</p>
+<p>最后，在第二个interval（图中应该是第三个，这里应为中间有一个被drop掉了）被 执行完之后，javasript引擎中已经没有东西可以用来执行了。这也就是说，浏览器现在正在等一个新的异步事件需要去触发(occur)。在第50毫秒的时候，再一次触发了inteval回调。这个时候，已经没有东西去阻塞它的执行，所以它加入到队列中之后就立刻执行了。</p>
+<p>接下来，让我们看一个例子更好的理解setTimeout与setInterval的区别：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">/* Some long block of code... */</span></span><br><span class="line">    setTimeout(<span class="built_in">arguments</span>.callee, <span class="number">10</span>);</span><br><span class="line">  &#125;, <span class="number">10</span>);</span><br><span class="line"> </span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">/* Some long block of code... */</span></span><br><span class="line">  &#125;, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这两段代码可能在功能的实现上非常的相似，不经意一看，他们是完全一样的。尤其是这个setTimeout代码会在上一个回调函数执行之后至少隔10毫秒再执行一次回调方法（它可能会超过10毫秒，但不会少于10毫秒）。但是setInteval 却会尝试10毫秒就执行一个回调函数，不会去管上一个回调是什么时候执行的。</p>
+<p>These two pieces of code may appear to be functionally equivalent, at first glance, but they are not. Notably the setTimeout code will always have at least a 10ms delay after the previous callback execution (it may end up being more, but never less) whereas the setInterval will attempt to execute a callback every 10ms regardless of when the last callback was executed.</p>
+<p>这里有一些东西是我们从这里学到的，做一个总结：</p>
+<p>1 javascript引擎仅仅只有一个单线程，正在执行的异步事件会加入到队列等待。</p>
+<p>2 setTimeout与setInterval 是执行异步回调方法从根本上不一样的。</p>
+<p>3 如果一个需要立即执行的定时器被阻塞了，它将被延迟执行，知道下一次线程空闲（那么被延迟的时间会超过定时器定义的时间）</p>
+<p>4 interval 可能会没有延迟的连续执行回调方法，如果主线程了执行一个足够长的代码（比定时的延迟长）</p>
+<p>所有的这些都是非常重要的知识对于了解javascript引擎是如何工作的。特别是对于大数量的回调事件发生的时候，为我们建立更好的应用代码建立好的基础。</p>
+<hr>
+<p>原文出自jQuery的作者John Resig。</p>
+<p>地址：<a href="http://ejohn.org/blog/how-javascript-timers-work/#postcomment" target="_blank" rel="noopener">http://ejohn.org/blog/how-javascript-timers-work/#postcomment</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/06/27/fe/regexp-mathch-script-node/" rel="next" title="正则匹配script脚本节点">
+                <i class="fa fa-chevron-left"></i> 正则匹配script脚本节点
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/07/11/fe/javascript-memory-lack/" rel="prev" title="内存泄露以及循环引用解析">
+                内存泄露以及循环引用解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">幽梦</p>
+              <p class="site-description motion-element" itemprop="description">来者何人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">幽梦</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

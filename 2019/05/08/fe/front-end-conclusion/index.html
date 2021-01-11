@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前端技术总结">
+<meta name="keywords" content="前端, javaScript, github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端技术总结">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/fe/front-end-conclusion/index.html">
+<meta property="og:site_name" content="小二，上酒">
+<meta property="og:description" content="前端技术总结">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/postimg/20170511185923465.png">
+<meta property="og:image" content="http://yoursite.com/postimg/20170524131403402.png">
+<meta property="og:image" content="http://yoursite.com/postimg/20170525115839966.png">
+<meta property="og:image" content="http://yoursite.com/postimg/20170525115850779.png">
+<meta property="og:updated_time" content="2021-01-11T04:00:35.075Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端技术总结">
+<meta name="twitter:description" content="前端技术总结">
+<meta name="twitter:image" content="http://yoursite.com/postimg/20170511185923465.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/fe/front-end-conclusion/">
+
+
+
+
+
+  <title>前端技术总结 | 小二，上酒</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小二，上酒</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">心有猛虎，细嗅蔷薇</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/fe/front-end-conclusion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="幽梦">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小二，上酒">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">前端技术总结</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-08T19:30:00+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  前端技术总结
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>文章主要是用来记录一下一些常见问题，权当是复习了。</p>
+<p>##1 请用原生JS实现对象的深度拷贝。<br>其实这个题目还是挺基础的，主要考虑当objt是对象object或者数组时递归调用即可，当然这里还有一个小问题需要注意的就是对于<code>纯对象</code>的考量，这里直接用<code>typeof parent[i] ===&#39;object&#39;</code>可能会存在一定的问题。<br>具体代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extendsDeep</span>(<span class="params">parent,child</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> i,</span><br><span class="line">		toStr = <span class="built_in">Object</span>.prototype.toString,</span><br><span class="line">		astr = <span class="string">"[object Array]"</span>;</span><br><span class="line">	child = child || &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i <span class="keyword">in</span> parent)&#123;</span><br><span class="line">		<span class="keyword">if</span>(parent.hasOwnProperty(i))&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="keyword">typeof</span> parent[i] === <span class="string">'object'</span>)&#123;</span><br><span class="line">				child[i] =(toStr.call(parent[i]) === astr) ? [] : &#123;&#125;;</span><br><span class="line">				extendsDeep(parent[i],child[i]);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				child[i] = parent[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-请用原生代码实现简易事件系统。"><a href="#2-请用原生代码实现简易事件系统。" class="headerlink" title="2 请用原生代码实现简易事件系统。"></a>2 请用原生代码实现简易事件系统。</h2><p>这里主要涉及浏览器的事件系统，包括事件冒泡，事件捕获，目标事件，以及对不同浏览器的事件兼容性问题处理，最后就是this的指向处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add event</span></span><br><span class="line">funciton addEvent(elem,type,fn)&#123;</span><br><span class="line">	<span class="keyword">if</span>(elem.addEventListener)&#123;</span><br><span class="line">	    elem.addEventListener(type,fn,<span class="literal">false</span>);<span class="comment">//标准浏览器默认事件为冒泡</span></span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(elem.attachEvent)&#123;</span><br><span class="line">	    elem.attachEvent(<span class="string">'on'</span>+type,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		    fn.call(elem);</span><br><span class="line">	    &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		elem[<span class="string">'on'</span>+type] = fn;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//remove event</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span>(<span class="params">elem,type,fn</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(elem.removeEventListener)&#123;</span><br><span class="line">		elem.removeEventListener(type,fn,<span class="literal">false</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>&#123;</span><br><span class="line">		elem.detachEvent(<span class="string">'on'</span>+type,fn);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-请用原生JS代码实现事件代理"><a href="#3-请用原生JS代码实现事件代理" class="headerlink" title="3 请用原生JS代码实现事件代理"></a>3 请用原生JS代码实现事件代理</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">addEvent: <span class="function"><span class="keyword">function</span>(<span class="params">elem,selector,type,fn</span>)</span>&#123;</span><br><span class="line">		<span class="comment">//判断是否为代理</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">arguments</span>.length == <span class="number">3</span>)&#123;</span><br><span class="line">			<span class="keyword">var</span>	fn = type, </span><br><span class="line">				type = selector;</span><br><span class="line">				selector = <span class="string">""</span>;<span class="comment">//代理置空</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(elem.addEventListener)&#123;</span><br><span class="line">			elem.addEventListener(type,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">				<span class="comment">//是否存在代理</span></span><br><span class="line">				<span class="keyword">if</span>(selector != <span class="string">""</span>)&#123;</span><br><span class="line">					<span class="keyword">var</span> event = event || <span class="built_in">window</span>.event,</span><br><span class="line">						target = event.target;</span><br><span class="line">						<span class="keyword">if</span>(<span class="string">"."</span> + target.className == selector)&#123;</span><br><span class="line">							fn.apply(elem,<span class="built_in">arguments</span>);</span><br><span class="line">						&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					fn.apply(elem,<span class="built_in">arguments</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,<span class="literal">false</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(elem.attachEvent)&#123;</span><br><span class="line">			elem.attachEvent(<span class="string">"on"</span> + type,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">				<span class="comment">//是否存在代理</span></span><br><span class="line">				<span class="keyword">if</span>(selector != <span class="string">""</span>)&#123;</span><br><span class="line">					<span class="keyword">var</span> event = event || <span class="built_in">window</span>.event,</span><br><span class="line">						target = event.target || event.srcElement;</span><br><span class="line">					<span class="keyword">if</span>(<span class="string">"."</span> + target.className == selector)&#123;</span><br><span class="line">						fn.apply(elem,<span class="built_in">arguments</span>);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">					fn.apply(elem,<span class="built_in">arguments</span>);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-请用原生JS实现对象继承"><a href="#4-请用原生JS实现对象继承" class="headerlink" title="4 请用原生JS实现对象继承"></a>4 请用原生JS实现对象继承</h2><p>对象继承的方式有许多种，主要包括默认模式，借用构造方法模式，借用与设置模式，共享原型模式,临时构造方法模式；<br>当然这里可能只要你能答出2到3种就已经差不多了； </p>
+<p>###1 <code>默认模式</code><br>其实默认模式应该是最简单的，需要继承父类的方法，直接简单粗暴的new一个父类的实例出来就搞定了。应该由于js中prototype机制的关系，new出来的实例中会有一个内部属性<code>__proto__</code> 指向prototype对象，那么将子类的prototype对象直接赋值为new出来的实例，一切就搞定了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Chid,Parent</span>)</span>&#123;</span><br><span class="line">	Child.prototype = <span class="keyword">new</span> Parent(); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然他的缺点也很明显：<br>1 <code>子类同时继承了两个对象的属性，即添加到this的属性与原型链上的属性</code>;
+2 <code>默认模式并不支持将参数传递到子构造函数中，而子构造函数又将参数传递到父构造函数中</code>;
+考虑以下情况：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name || <span class="string">'parent'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extend(Child,Parent);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">'child'</span>);</span><br><span class="line"><span class="comment">//由于这里'child'参数并不会传递到Parent构造方方法中</span></span><br><span class="line"><span class="comment">//虽然子构造方法可以将参数传递到父构造方方法，</span></span><br><span class="line"><span class="comment">//但是如果那样的话，在每次需要一个新的子对象时都必须重新执行这种继承机制，</span></span><br><span class="line"><span class="comment">//而且这种机制效率低下，原因在于最终会反复的重新创建父对象;</span></span><br><span class="line">s.say();	<span class="comment">// parent</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-借用构造方法模式"><a href="#2-借用构造方法模式" class="headerlink" title="2 借用构造方法模式"></a>2 <code>借用构造方法模式</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">	Parent.appliy(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然这种模式的缺点也很明显：<br>只能继承this中的属性，而在prototype中的属性则不能继承；<br>PS:需要至于与上面默认模式的区别，1中的默认模式是继承的this中属性是对父级属性的引用，而2中借用构造方法则是对父类中this属性的拷贝，毕竟都已经在子类的构造方法中单独运行了。所以如果修改通过1继承而来的子类属性，父类的是属性会一样被修改，而2则不会;</p>
+<h3 id="3-借用与设置模式"><a href="#3-借用与设置模式" class="headerlink" title="3 借用与设置模式"></a>3 <code>借用与设置模式</code></h3><p>其实就是将上面的2种模式综合一起。如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">a,b,c,d</span>)</span>&#123;</span><br><span class="line">	Parent.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent();</span><br></pre></td></tr></table></figure>
+
+<p>既可以解决上面1中子构造方法的传参问题，也可以解决2中的prototype属性没法继承问题；<br>但是新的问题是，这里面调用了<code>2次</code>父类的构造方法；</p>
+<h3 id="4-共享原型模式"><a href="#4-共享原型模式" class="headerlink" title="4 共享原型模式"></a>4 <code>共享原型模式</code></h3><p>所谓共享，就是将prototype进行复用；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">funciton extend(Child,Parent)&#123;</span><br><span class="line">	Child.prototype = Parent.prototype;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当然它的问题也很明显，子类与父类的耦合太重，如果修改了子类的prototype，那么父类也很一样受到影响；</p>
+<h3 id="5-临时构造方法模式"><a href="#5-临时构造方法模式" class="headerlink" title="5 临时构造方法模式"></a>5 <code>临时构造方法模式</code></h3><p>都说大音希声，其实到最后最终的解决方案，也很简单。<br>从上面来看，共享原型的方式会存在耦合，那么我们解掉耦合不就over了么？<br>解决方案是，用一个临时的方法 F 的prototype来保存父类的prototype对象，而子类的prototype对象则选择指向临时方法F 的实例，那么这样如果你修改了子类的prototype对象，那么受到印象的也只是F的实例而已，不会影响到父类方法的prototype;<br>所以解决方案如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child,Parent</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">	F.prototype = Parent.prototype();</span><br><span class="line">	Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-终极解决方案"><a href="#6-终极解决方案" class="headerlink" title="6 终极解决方案"></a>6 <code>终极解决方案</code></h3><p>在5的基础中进一步优化，重置constructor的指向与优化如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> extend = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;<span class="comment">//单例，只需要申明一次即可</span></span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">Child,Parent</span>)</span>&#123;</span><br><span class="line">		F.prototype = Parent.prototype;</span><br><span class="line">		Child.prototype = <span class="keyword">new</span> F();</span><br><span class="line">		Child.prototype.constructor = Child;</span><br><span class="line">		Child.super = Parent;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-关于json与jsonp的区别"><a href="#5-关于json与jsonp的区别" class="headerlink" title="5  关于json与jsonp的区别"></a>5  关于json与jsonp的区别</h2><p>json是一种数据交互的数据格式，jsonp为一种数据交互的跨域手段。<br>1 由于<code>跨域</code>由于同源策略的存在导致ajax在端口，域名，协议不同的情况下，无法完成请求；<br>2 但是发现页面在加载资源的时候img,script等，并不存在些等情况，唯一不同的是，加载资源是属于<code>GET</code>请求；<br>3 那么jsonp请应运而生了，我们可以动态的创建节点，然后动态加载资源，后端只需要把相应的数据以json格式返回回来即可，前端自行进行渲染；<br>具体实现如下:<br>服务端有js文件jsonp.js<br>返回数据格式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这里的showName 就是前端传递过来的callback参数值</span></span><br><span class="line">showName(&#123;</span><br><span class="line">    <span class="string">"code"</span>: <span class="string">"CA1998"</span>,</span><br><span class="line">    <span class="string">"price"</span>: <span class="number">1780</span>,</span><br><span class="line">    <span class="string">"tickets"</span>: <span class="number">5</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>前端调用文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> showName = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>);</span><br><span class="line">   script.type = <span class="string">"text/javascript"</span>;</span><br><span class="line">   script.src = <span class="string">"http://www.xx.com/jsonp.js?callback=showName"</span>;<span class="comment">//通过此处将要回调的方法名传递给后端</span></span><br><span class="line">   <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script);</span><br></pre></td></tr></table></figure>
+
+<p>ps: ajax与jsonp都可以用来作异步操作。但ajax和jsonp其实本质上是不同的东西。ajax的核心是通过XmlHttpRequest获取非本页内容，而jsonp的核心则是动态添加&lt;script&gt;标签来调用服务器提供的js脚本。 </p>
+<h2 id="6-水平垂直居中问题"><a href="#6-水平垂直居中问题" class="headerlink" title="6 水平垂直居中问题"></a>6 水平垂直居中问题</h2><p>垂直居中分为定宽和不定宽；</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*已知高度和宽度的水平垂直居中*/</span></span><br><span class="line"><span class="selector-id">#body-div</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-id">#body-div-container</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">margin</span>:-<span class="number">50px</span> <span class="number">0</span> <span class="number">0</span> -<span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*未知高度和宽度的水平垂直居中*/</span></span><br><span class="line"><span class="selector-id">#body-div</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">&#125;</span><br><span class="line">#<span class="selector-id">#body-div-container</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:absolute;</span><br><span class="line">    <span class="attribute">margin</span>:auto;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-闭包"><a href="#7-闭包" class="headerlink" title="7 闭包"></a>7 闭包</h2><p>关于闭包，确实涉及的东西太多太多，那么最重要的两个问题：<br>1 闭包是怎么形成的<br>2 闭包的作用与优缺点<br>关于第一个闭包是怎么形成的，这里又涉及到<code>词法作用域</code>，<code>作用域链</code>，<code>执行上下文</code>等概念。</p>
+<h3 id="7-1-词法作用域是什么呢？"><a href="#7-1-词法作用域是什么呢？" class="headerlink" title="7.1 词法作用域是什么呢？"></a>7.1 词法作用域是什么呢？</h3><p>词法作用域就是<code>定义</code>在词法阶段的作用域。换句话说，<code>词法作用域</code>是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码会保持<code>作用域</code>不变（大部分情况是这样的）。<br>考虑以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> b = a * <span class="number">2</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>)</span>&#123;</span><br><span class="line">		 <span class="built_in">console</span>.log(a,b,c);</span><br><span class="line">	&#125;</span><br><span class="line">	bar(b*<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">2</span>);<span class="comment">//2,4,12</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/postimg/20170511185923465.png" alt="这里写图片描述"></p>
+<p>三级嵌套的词法作用域，具体如下：<br>(1) 包含着整个全局作用域，其中只有一个标识符：foo。<br>(2) 包含着foo所创建的作用域，其中有三个标识符： a、bar、b。<br>(3) 包含着bar所创建的作用域，其中只有一个标识符：c 。</p>
+<p>无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处于的位置决定。</p>
+<p><code>当函数可以记住并访问所在词法作用域时，就产生了闭包，即使函数是在当前词法作用域之外执行；</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> baz = foo();</span><br><span class="line">baz();<span class="comment">//2 ---朋友，这就是闭包的效果</span></span><br></pre></td></tr></table></figure>
+
+<p>我们可以看到 bar这个函数在 定时时的词法作用域以外的地方被调用。闭包使得函数可以继续访问定义时的词法作用域。<br>那么就很容易会发现，上面bar被调用时，需要用到变量a。那么js引擎会被a所在词法作用域压缩到bar方法的作用域链中，即使foo已经调用完成，内存中也不会释放对变量a的引用。需要注意的是，这里压缩到作用域链中的词法作用域中只保有bar所引用的变量，没有引用的变量是不会被内存保留下来的。</p>
+<h2 id="8-性能优化"><a href="#8-性能优化" class="headerlink" title="8 性能优化"></a>8 性能优化</h2><p>关于性能优化，真的能说的太多了。<br>常见情况：<br>1) <code>请求合并</code><br>2) <code>CSS Sprite，启用base64</code><br>3) <code>延迟加载</code><br>4) <code>CSS放在页面上面，JS资源放在页面最下面</code><br>5) <code>异步请求</code><br>6) <code>CDN加速</code><br>7) <code>反向代理</code><br>8) <code>启用gizp压缩</code><br>9) <code>合理设置缓存</code><br>10) <code>合理选择图片格式（包括：jpg，png，gif，svg，webp，iconfont等）</code><br>11) <code>减少cookie，使用离线存储</code><br>12) <code>页面静态化</code><br>13) <code>DNS预加载</code><br>14) <code>域名拆分</code></p>
+<h2 id="9-浏览器缓存机制"><a href="#9-浏览器缓存机制" class="headerlink" title="9 浏览器缓存机制"></a>9 浏览器缓存机制</h2><p><img src="/postimg/20170524131403402.png" alt="这里写图片描述"></p>
+<h2 id="10-VUE双向绑定实现原理"><a href="#10-VUE双向绑定实现原理" class="headerlink" title="10 VUE双向绑定实现原理"></a>10 VUE双向绑定实现原理</h2><p>1 <code>Vue双向绑定原理</code>：</p>
+<p><img src="/postimg/20170525115839966.png" alt="这里写图片描述"></p>
+<p>核心代码劫持监听对象数据， 需要考虑的是Dep对象被封装在闭包，属性调用get方法，会将对应的watcher添加到Dep.subs中，属性调用set方法是，调用dep.notify方法，会调用watcher中的update方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!data || <span class="keyword">typeof</span> data !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 取出所有属性遍历</span></span><br><span class="line">    <span class="built_in">Object</span>.keys(data).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">        defineReactive(data, key, data[key]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">data, key, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dep = <span class="keyword">new</span> Dep();</span><br><span class="line">    observe(val); <span class="comment">// 监听子属性</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(data, key, &#123;</span><br><span class="line">        <span class="comment">// ... 省略</span></span><br><span class="line">        <span class="keyword">set</span>: function(newVal) &#123;</span><br><span class="line">            <span class="keyword">if</span> (val === newVal) <span class="keyword">return</span>;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'哈哈哈，监听到值变化了 '</span>, val, <span class="string">' --&gt; '</span>, newVal);</span><br><span class="line">            val = newVal;</span><br><span class="line">            dep.notify(); <span class="comment">// 通知所有订阅者</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dep</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.subs = [];</span><br><span class="line">&#125;</span><br><span class="line">Dep.prototype = &#123;</span><br><span class="line">    addSub: <span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.push(sub);</span><br><span class="line">    &#125;,</span><br><span class="line">    notify: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.subs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">sub</span>) </span>&#123;</span><br><span class="line">            sub.update();</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Watcher.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Watcher</span>(<span class="params">vm, exp, cb</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.cb = cb;</span><br><span class="line">    <span class="keyword">this</span>.vm = vm;</span><br><span class="line">    <span class="keyword">this</span>.exp = exp;</span><br><span class="line">    <span class="comment">// 此处为了触发属性的getter，从而在dep添加自己，结合Observer更易理解</span></span><br><span class="line">    <span class="keyword">this</span>.value = <span class="keyword">this</span>.get(); </span><br><span class="line">&#125;</span><br><span class="line">Watcher.prototype = &#123;</span><br><span class="line">    update: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.run();    <span class="comment">// 属性值变化收到通知</span></span><br><span class="line">    &#125;,</span><br><span class="line">    run: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> value = <span class="keyword">this</span>.get(); <span class="comment">// 取到最新值</span></span><br><span class="line">        <span class="keyword">var</span> oldVal = <span class="keyword">this</span>.value;</span><br><span class="line">        <span class="keyword">if</span> (value !== oldVal) &#123;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">            <span class="keyword">this</span>.cb.call(<span class="keyword">this</span>.vm, value, oldVal); <span class="comment">// 执行Compile中绑定的回调，更新视图</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">get</span>: function() &#123;</span><br><span class="line">        Dep.target = <span class="keyword">this</span>;    <span class="comment">// 将当前订阅者指向自己</span></span><br><span class="line">        <span class="keyword">var</span> value = <span class="keyword">this</span>.vm[exp];    <span class="comment">// 触发getter，添加自己到属性订阅器中</span></span><br><span class="line">        Dep.target = <span class="literal">null</span>;    <span class="comment">// 添加完毕，重置</span></span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>2 <code>Vue模版绑定渲染方案</code></p>
+<p><img src="/postimg/20170525115850779.png" alt="这里写图片描述"></p>
+<h2 id="11-XSS与CSRF请求"><a href="#11-XSS与CSRF请求" class="headerlink" title="11 XSS与CSRF请求"></a>11 XSS与CSRF请求</h2><h2 id="12-http请求"><a href="#12-http请求" class="headerlink" title="12 http请求"></a>12 http请求</h2><h2 id="13-html缓存"><a href="#13-html缓存" class="headerlink" title="13 html缓存"></a>13 html缓存</h2><h2 id="14-变量提升问题"><a href="#14-变量提升问题" class="headerlink" title="14 变量提升问题"></a>14 变量提升问题</h2><h2 id="15-ES6"><a href="#15-ES6" class="headerlink" title="15 ES6"></a>15 ES6</h2><p>引用:<br><a href="https://segmentfault.com/a/1190000006599500" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006599500</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/12/fe/passive-polyfill-code/" rel="next" title="passive polyfill 代码">
+                <i class="fa fa-chevron-left"></i> passive polyfill 代码
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/03/vue/vue-source-reading/" rel="prev" title="vue源码阅读">
+                vue源码阅读 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">幽梦</p>
+              <p class="site-description motion-element" itemprop="description">来者何人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-请用原生代码实现简易事件系统。"><span class="nav-number">1.</span> <span class="nav-text">2 请用原生代码实现简易事件系统。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-请用原生JS代码实现事件代理"><span class="nav-number">2.</span> <span class="nav-text">3 请用原生JS代码实现事件代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-请用原生JS实现对象继承"><span class="nav-number">3.</span> <span class="nav-text">4 请用原生JS实现对象继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-借用构造方法模式"><span class="nav-number">3.1.</span> <span class="nav-text">2 借用构造方法模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-借用与设置模式"><span class="nav-number">3.2.</span> <span class="nav-text">3 借用与设置模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-共享原型模式"><span class="nav-number">3.3.</span> <span class="nav-text">4 共享原型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-临时构造方法模式"><span class="nav-number">3.4.</span> <span class="nav-text">5 临时构造方法模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-终极解决方案"><span class="nav-number">3.5.</span> <span class="nav-text">6 终极解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-关于json与jsonp的区别"><span class="nav-number">4.</span> <span class="nav-text">5  关于json与jsonp的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-水平垂直居中问题"><span class="nav-number">5.</span> <span class="nav-text">6 水平垂直居中问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-闭包"><span class="nav-number">6.</span> <span class="nav-text">7 闭包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-词法作用域是什么呢？"><span class="nav-number">6.1.</span> <span class="nav-text">7.1 词法作用域是什么呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-性能优化"><span class="nav-number">7.</span> <span class="nav-text">8 性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-浏览器缓存机制"><span class="nav-number">8.</span> <span class="nav-text">9 浏览器缓存机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-VUE双向绑定实现原理"><span class="nav-number">9.</span> <span class="nav-text">10 VUE双向绑定实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-XSS与CSRF请求"><span class="nav-number">10.</span> <span class="nav-text">11 XSS与CSRF请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-http请求"><span class="nav-number">11.</span> <span class="nav-text">12 http请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-html缓存"><span class="nav-number">12.</span> <span class="nav-text">13 html缓存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-变量提升问题"><span class="nav-number">13.</span> <span class="nav-text">14 变量提升问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-ES6"><span class="nav-number">14.</span> <span class="nav-text">15 ES6</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">幽梦</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
