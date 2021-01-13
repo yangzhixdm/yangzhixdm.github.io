@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="小二，上酒">
 <meta property="og:description" content="最近开始学习Eggjs。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/posting/postmain-csrf.png">
-<meta property="og:updated_time" content="2021-01-12T09:27:07.972Z">
+<meta property="og:image" content="http://yoursite.com/postimg/postmain-csrf.png">
+<meta property="og:updated_time" content="2021-01-12T09:48:08.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eggjs 学习1">
 <meta name="twitter:description" content="最近开始学习Eggjs。">
-<meta name="twitter:image" content="http://yoursite.com/posting/postmain-csrf.png">
+<meta name="twitter:image" content="http://yoursite.com/postimg/postmain-csrf.png">
 
 
 
@@ -312,8 +312,9 @@
 <h4 id="postmain模拟请求"><a href="#postmain模拟请求" class="headerlink" title="postmain模拟请求"></a>postmain模拟请求</h4><p>postmain中模拟请求，会存在csrf限制，需要进行绕过。<br>首先在postman的tests添加如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var csrf_token = postman.getResponseCookie(&quot;csrfToken&quot;).value</span><br><span class="line">postman.clearGlobalVariable(&quot;csrfToken&quot;);</span><br><span class="line">postman.setGlobalVariable(&quot;csrfToken&quot;, csrf_token);</span><br></pre></td></tr></table></figure>
 
-<p>然后再postman中添加 <code>x-csrf-token</code> 头即可。<br><img src="/posting/postmain-csrf.png" alt="postmain-csrf"></p>
-
+<p>然后再postman中添加 <code>x-csrf-token</code> 头即可。<br><img src="/postimg/postmain-csrf.png" alt="postmain-csrf"></p>
+<h4 id="egg-自动生成typings文件"><a href="#egg-自动生成typings文件" class="headerlink" title="egg 自动生成typings文件"></a>egg 自动生成typings文件</h4><p>新的方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># page</span><br><span class="line">&quot;egg&quot;: &#123;</span><br><span class="line">    &quot;declarations&quot;: true</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -352,6 +353,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/12/ts/1/" rel="prev" title="TypeScript 入门">
+                TypeScript 入门 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -428,7 +433,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -441,7 +446,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -474,7 +479,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#postmain模拟请求"><span class="nav-number">2.</span> <span class="nav-text">postmain模拟请求</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#postmain模拟请求"><span class="nav-number">2.</span> <span class="nav-text">postmain模拟请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#egg-自动生成typings文件"><span class="nav-number">3.</span> <span class="nav-text">egg 自动生成typings文件</span></a></li></ol></div>
             
 
           </div>
