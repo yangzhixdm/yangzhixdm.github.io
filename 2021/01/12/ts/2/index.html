@@ -332,7 +332,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">declare <span class="function"><span class="keyword">function</span> <span class="title">create</span>(<span class="params">o: object | null</span>): <span class="title">void</span>;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params">&#123; prop: <span class="number">0</span> &#125;</span>); // <span class="title">OK</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params">null</span>); // <span class="title">OK</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params"><span class="number">42</span></span>); // <span class="title">Error</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params"><span class="string">"string"</span></span>); // <span class="title">Error</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params">false</span>); // <span class="title">Error</span></span></span><br><span class="line"><span class="function"><span class="title">create</span>(<span class="params">undefined</span>); // <span class="title">Error</span></span></span><br></pre></td></tr></table></figure>
 
 <h4 id="类型断言"><a href="#类型断言" class="headerlink" title="类型断言"></a>类型断言</h4><p>类型断言有两种形式。 其一是“尖括号”语法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: any = <span class="string">"this is a string"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> strLength: number = (&lt;string&gt;someValue).length;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: any = <span class="string">"this is a string"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> strLength: number = (<span class="xml"><span class="tag">&lt;<span class="name">string</span>&gt;</span>someValue).length;</span></span><br></pre></td></tr></table></figure>
 
 <p>另一个为as语法：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> someValue: any = <span class="string">"this is a string"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> strLength: number = (someValue <span class="keyword">as</span> string).length;</span><br></pre></td></tr></table></figure>
@@ -457,7 +457,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -470,7 +470,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
