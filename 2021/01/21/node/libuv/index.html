@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="小二，上酒">
 <meta property="og:description" content="最近一直在研究 node 的异步机制的实现，记录其中涉及到的一些问题。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-01-22T03:41:26.795Z">
+<meta property="og:updated_time" content="2021-01-22T06:54:01.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node异步libuv机制">
 <meta name="twitter:description" content="最近一直在研究 node 的异步机制的实现，记录其中涉及到的一些问题。">
@@ -306,8 +306,11 @@
       
         <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>最近一段时间不知道为啥，对于node性能机制非常好奇，就开始看各种书籍以及资料。所以就有了这一篇总结。</p>
 <h4 id="计算机基础知识"><a href="#计算机基础知识" class="headerlink" title="计算机基础知识"></a>计算机基础知识</h4><h5 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h5><p>中断是指计算机运行过程中，出现某些意外情况需主机干预时，机器能自动停止正在运行的程序并转入处理新情况的程序，处理完毕后又返回原被暂停的程序继续运行。<br>包括硬件事件，用户事件，计算机故障，断电等事件。</p>
-<p>这里还涉及了一个 <code>中断映射表</code>，映射表中存储了对应的 中断的执行方法。不同的中断都对应了一个编号比如（0x80)就是常说的80中断，发送给cpu的指令只是中断的编号，<br>然后从中断映射表中查询出对应的回调策略处理程序。</p>
-<h5 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h5><h5 id="用户态，内核态"><a href="#用户态，内核态" class="headerlink" title="用户态，内核态"></a>用户态，内核态</h5><p>*nix 系统在启动的时候，会对内存进行分配，内核kernel使用部分为内核态，之外让出的部分供应用程序使用为用户态。<br>系统内核kernel中封装了对内存以及硬件操作的api。用户程序需要操纵内核态的数据，则需要通过内核kernel进行处理。这里就需要涉及从用户态切换到内核态。<br>而切换是需要代价的。</p>
+<p>这里还涉及了一个 <code>中断程序入口映射表</code>，映射表在内核启动时自动加载，其中存储了对应的 中断的执行方法。不同的中断都对应了一个编号比如（0x80)就是常说的80中断，发送给cpu的指令只是中断的编号，<br>然后从中断映射表中查询出对应的回调策略处理程序。</p>
+<p>CPU 通过接收 <code>中断控制器</code> 给到的信号进行处理中断请求，其中<code>中断控制器</code> 可以进行级联，中断控制器在主板上直接和硬件进行连接，电流发现变化的时候，就说明产生中断了，通过数据总线向CPU 完成中断请求IRQ.</p>
+<h5 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h5><p>外围设备可以直接通过DMA直接访问内存。中断产生之后，外围设备可以通过DMA将数据复制到内存中，然后将数据信号送给CPU进行处理，发起一个中断IRQ。(一般外围设备都有自己的缓冲区进行存储数据。) CPU接收到 中断请求之后放弃现在当前的执行进程，将当前进程的数据保存到寄存器中，并将当前的寄存器保存到进程描述符汇中。（每一个进程都有自己的进程描述符）</p>
+<p>然后 CPU，从用户态切换到内核态，从内存中获取数据进行处理, 执行结束之后，又切换会用户态，从进程描述符中恢复进程，继续执行。</p>
+<h5 id="用户态，内核态"><a href="#用户态，内核态" class="headerlink" title="用户态，内核态"></a>用户态，内核态</h5><p>*nix 系统在启动的时候，会对内存进行分配，内核kernel使用部分为内核态，之外让出的部分供应用程序使用为用户态。<br>系统内核kernel中封装了对内存以及硬件操作的api。用户程序需要操纵内核态的数据，则需要通过内核kernel进行处理。这里就需要涉及从用户态切换到内核态。<br>而切换是需要代价的。</p>
 <p>这里当应用程序需要调用内核程序时，会将 用户态保存的数据进行拷贝到内核态中，然后内核将数据放入到 <code>缓冲区</code> （输入缓冲区和输出缓冲区）中，然后内核在缓冲区写入完成之后，统一进行处理。<br>如果 内核 缓冲区 在被内核处理的过程中，用户态发了数据，那么用户态发送的数据将会被阻塞。直到缓冲区的数据被处理完成，才会继续处理新发送过来的数据。</p>
 <p>用户应用程序如果在 <code>输出缓冲区</code> 数据没有发送完全之前关闭连接，那么数据不会丢失，缓冲区会继续发送，直到数据完成。但是如果是 <code>输入缓冲区</code> 的数据还没有发送完成，用户程序已经关闭，那么数据将会丢失。</p>
 <h5 id="保护机制"><a href="#保护机制" class="headerlink" title="保护机制"></a>保护机制</h5><p>系统对内核进行保护，禁止高级应用程序直接操内核数据。</p>
@@ -436,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/13/ts/6/" rel="next" title="TypeScript 函数">
-                <i class="fa fa-chevron-left"></i> TypeScript 函数
+              <a href="/2021/01/13/ts/7/" rel="next" title="TypeScript 泛型">
+                <i class="fa fa-chevron-left"></i> TypeScript 泛型
               </a>
             
           </div>
