@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="TypeScript,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="TypeScript 泛型">
-<meta name="keywords" content="TypeScript">
+<meta name="description" content="Vue 中对于方法调用错误异常的处理方案。">
+<meta name="keywords" content="前端, javaScript, github">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TypeScript 泛型">
-<meta property="og:url" content="http://yoursite.com/2021/01/13/ts/7/index.html">
+<meta property="og:title" content="invokeWithErrorHandling">
+<meta property="og:url" content="http://yoursite.com/2021/01/26/fe/handle-error/index.html">
 <meta property="og:site_name" content="小二，上酒">
-<meta property="og:description" content="TypeScript 泛型">
+<meta property="og:description" content="Vue 中对于方法调用错误异常的处理方案。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-01-13T10:07:27.903Z">
+<meta property="og:updated_time" content="2021-01-26T07:11:02.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TypeScript 泛型">
-<meta name="twitter:description" content="TypeScript 泛型">
+<meta name="twitter:title" content="invokeWithErrorHandling">
+<meta name="twitter:description" content="Vue 中对于方法调用错误异常的处理方案。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2021/01/13/ts/7/">
+  <link rel="canonical" href="http://yoursite.com/2021/01/26/fe/handle-error/">
 
 
 
 
 
-  <title>TypeScript 泛型 | 小二，上酒</title>
+  <title>invokeWithErrorHandling | 小二，上酒</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/13/ts/7/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/26/fe/handle-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="幽梦">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">TypeScript 泛型</h1>
+          <h1 class="post-title" itemprop="name headline">invokeWithErrorHandling</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-13T14:52:30+08:00">
-                2021-01-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-26T12:00:11+08:00">
+                2021-01-26
               </time>
             
 
@@ -287,7 +287,7 @@
 
           
               <div class="post-description">
-                  TypeScript 泛型
+                  Vue 中对于方法调用错误异常的处理方案。
               </div>
           
 
@@ -304,20 +304,7 @@
       
 
       
-        <h4 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> output = identity&lt;<span class="built_in">string</span>&gt;(<span class="string">"myString"</span>);  <span class="comment">// type of output will be 'string'</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="泛型变量"><a href="#泛型变量" class="headerlink" title="泛型变量"></a>泛型变量</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loggingIdentity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: <span class="built_in">Array</span>&lt;T&gt;</span>): <span class="title">Array</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(arg.length);  <span class="comment">// Array has a .length, so no more error</span></span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="泛型类型"><a href="#泛型类型" class="headerlink" title="泛型类型"></a>泛型类型</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myIdentity: &#123;&lt;T&gt;(arg: T): T&#125; = identity; <span class="comment">//带签名</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> GenericIdentityFn &#123;</span><br><span class="line">    &lt;T&gt;(arg: T): T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myIdentity: GenericIdentityFn = identity;</span><br></pre></td></tr></table></figure>
-
-<h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> GenericNumber&lt;T&gt; &#123;</span><br><span class="line">    zeroValue: T;</span><br><span class="line">    add: <span class="function">(<span class="params">x: T, y: T</span>) =&gt;</span> T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myGenericNumber = <span class="keyword">new</span> GenericNumber&lt;<span class="built_in">number</span>&gt;();</span><br><span class="line">myGenericNumber.zeroValue = <span class="number">0</span>;</span><br><span class="line">myGenericNumber.add = <span class="function"><span class="keyword">function</span>(<span class="params">x, y</span>) </span>&#123; <span class="keyword">return</span> x + y; &#125;;</span><br></pre></td></tr></table></figure>
-
-<p>类有两部分：静态部分和实例部分。 泛型类指的是实例部分的类型，所以类的静态属性不能使用这个泛型类型。</p>
-<h4 id="泛型约束"><a href="#泛型约束" class="headerlink" title="泛型约束"></a>泛型约束</h4>
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">invokeWithErrorHandling</span> (<span class="params"></span></span></span><br><span class="line"><span class="function"><span class="params">  handler: Function,</span></span></span><br><span class="line"><span class="function"><span class="params">  context: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  args: null | any[],</span></span></span><br><span class="line"><span class="function"><span class="params">  vm: any,</span></span></span><br><span class="line"><span class="function"><span class="params">  info: string</span></span></span><br><span class="line"><span class="function"><span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> res</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    res = args ? handler.apply(context, args) : handler.call(context)</span><br><span class="line">    <span class="keyword">if</span> (res &amp;&amp; !res._isVue &amp;&amp; isPromise(res) &amp;&amp; !res._handled) &#123;</span><br><span class="line">      res.catch(<span class="function"><span class="params">e</span> =&gt;</span> handleError(e, vm, info + <span class="string">` (Promise/async)`</span>))</span><br><span class="line">      <span class="comment">// issue #9511</span></span><br><span class="line">      <span class="comment">// avoid catch triggering multiple times when nested calls</span></span><br><span class="line">      res._handled = <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    handleError(e, vm, info)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -332,12 +319,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/TypeScript/" rel="tag"># TypeScript</a>
-          
-        </div>
-      
 
       
       
@@ -347,8 +328,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/01/12/ts/4/" rel="next" title="TypeScript 接口">
-                <i class="fa fa-chevron-left"></i> TypeScript 接口
+              <a href="/2021/01/21/node/libuv/" rel="next" title="Node异步libuv机制">
+                <i class="fa fa-chevron-left"></i> Node异步libuv机制
               </a>
             
           </div>
@@ -356,10 +337,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/01/13/ts/5/" rel="prev" title="TypeScript Class">
-                TypeScript Class <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -411,17 +388,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -472,22 +440,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型"><span class="nav-number">1.</span> <span class="nav-text">泛型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型变量"><span class="nav-number">2.</span> <span class="nav-text">泛型变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型类型"><span class="nav-number">3.</span> <span class="nav-text">泛型类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型类"><span class="nav-number">4.</span> <span class="nav-text">泛型类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#泛型约束"><span class="nav-number">5.</span> <span class="nav-text">泛型约束</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
